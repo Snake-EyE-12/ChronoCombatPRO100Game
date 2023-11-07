@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.guymon.utilities": {
+      "version": "file:C:/Users/Chase/Desktop/Workspace/Unity Packages/GuymonUtilities",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "7.0.11",
       "depth": 1,
