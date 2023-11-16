@@ -7,8 +7,9 @@ public class Card : MonoBehaviour
     public int mana;
     public string type;
 
-    public void Play(string type)
+    public void Cast(string type)
     {
+<<<<<<< HEAD
         /*
         switch (type)
             case:
@@ -32,5 +33,15 @@ public class Card : MonoBehaviour
 
             }
         */
+=======
+        switch (type) {
+            case "spell":
+                break;
+            case "item":
+                break;
+            case "equipment":
+                break;
+        }
+>>>>>>> ee1e4e0c004f94ffd88430a966a7b437a13cd35e
     }
 }
