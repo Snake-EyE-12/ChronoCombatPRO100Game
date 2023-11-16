@@ -23,6 +23,9 @@ public class CardController : MonoBehaviour
         card.Cast();
         return (mana - card.mana);
     }
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 };
