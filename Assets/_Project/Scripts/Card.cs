@@ -7,9 +7,14 @@ public class Card : MonoBehaviour
     public int mana;
     public string type;
 
+<<<<<<< Updated upstream
     public void Cast(string type)
     {
 <<<<<<< HEAD
+=======
+    public void Play(string type)
+    {
+>>>>>>> Stashed changes
         /*
         switch (type)
             case:
@@ -33,7 +38,10 @@ public class Card : MonoBehaviour
 
             }
         */
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         switch (type) {
             case "spell":
                 break;
@@ -42,6 +50,6 @@ public class Card : MonoBehaviour
             case "equipment":
                 break;
         }
->>>>>>> ee1e4e0c004f94ffd88430a966a7b437a13cd35e
+
     }
 }

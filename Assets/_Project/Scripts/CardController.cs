@@ -12,7 +12,10 @@ public class CardController : MonoBehaviour
         return (mana - card.mana);
     }
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 };
