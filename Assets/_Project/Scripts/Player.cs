@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //Contoller
+    //deck class 1. vecotr list 2. methods to controller the class 
+    //
+
+
     string name;
     int hp;
     int mana;
+    //cards
+    // Items invertory 
 
-    void PickCard() { }
+    void PickCard() { 
+    //needs cards to start 
+
+    }
     // Start is called before the first frame update
     void Start()
     {
