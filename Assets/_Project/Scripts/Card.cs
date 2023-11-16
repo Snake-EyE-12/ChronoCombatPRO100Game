@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    int mana;
-    string type;
+    public int mana;
+    public string type;
 
     void Play(string type)
     {
