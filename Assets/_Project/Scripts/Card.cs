@@ -14,7 +14,7 @@ public class Card : MonoBehaviour
             case:
             "spell"
                 {
-
+            
             }
         case:
             "item"
