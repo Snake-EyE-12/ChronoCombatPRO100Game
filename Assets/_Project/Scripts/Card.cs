@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    int mana;
-    string type;
+    public int mana;
+    public string type;
 
-    void Cast(string type)
+    public void Play(string type)
     {
+        /*
         switch (type)
             case:
             "spell"
@@ -25,5 +26,11 @@ public class Card : MonoBehaviour
                 {
 
             }
-        }
+        case:
+            "consumable"
+                {
+
+            }
+        */
     }
+}
