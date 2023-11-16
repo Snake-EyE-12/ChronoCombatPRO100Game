@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
-    int PlayCard(int mana, Card card)
+    public int PlayCard(int mana, Card card)
     {
         if (mana < card.mana) return mana;
 
