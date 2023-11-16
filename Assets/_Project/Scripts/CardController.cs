@@ -11,11 +11,4 @@ public class CardController : MonoBehaviour
         card.Play(card.type);
         return (mana - card.mana);
     }
-
-<<<<<<< Updated upstream
-
-
-
-=======
->>>>>>> Stashed changes
 };
