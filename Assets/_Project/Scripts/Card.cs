@@ -9,8 +9,7 @@ public class Card : MonoBehaviour
 
     public void Play(string type)
     {
-        switch (type)
-        {
+        switch (type) {
             case "spell":
                 break;
             case "item":
@@ -18,5 +17,6 @@ public class Card : MonoBehaviour
             case "equipment":
                 break;
         }
+
     }
 }
