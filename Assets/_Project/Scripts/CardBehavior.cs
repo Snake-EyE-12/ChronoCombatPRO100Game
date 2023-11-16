@@ -18,4 +18,10 @@ public class CardBehavior : MonoBehaviour
     {
         return true;
     }
-}
+
+    int UseHealPotion(int mana)
+    {
+        if (mana < 2) return 0;
+        return 5;
+    }
+};
