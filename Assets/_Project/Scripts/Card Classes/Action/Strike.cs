@@ -6,6 +6,6 @@ public class Strike : Action
 {
     public override void OnPlay()
     {
-
+        // Controller.DealDmg(6);
     }
 }
