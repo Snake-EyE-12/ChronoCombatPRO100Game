@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    int mana;
+    string type;
 
-    // Update is called once per frame
-    void Update()
+    void Cast(string type)
     {
-        
+        switch (type)
+            case:
+            "spell"
+                {
+
+            }
+        case:
+            "item"
+                {
+
+            }
+        case:
+            "equipment"
+                {
+
+            }
+        }
     }
-}

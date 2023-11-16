@@ -16,7 +16,7 @@ public class CardController : MonoBehaviour
 
     }
 
-    int PlayCard(int mana, string card)
+    int PlayCard(int mana, Card card)
     {
         if (mana < card.mana) return mana;
 
