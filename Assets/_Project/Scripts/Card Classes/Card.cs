@@ -6,4 +6,9 @@ public class Card : MonoBehaviour
 {
     public int mana;
     public string type;
+
+    public virtual void OnPlay()
+    {
+
+    }
 }

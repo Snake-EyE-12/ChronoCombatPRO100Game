@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Action : Card
 {
+    public override void OnPlay()
+    {
 
+    }
 }
