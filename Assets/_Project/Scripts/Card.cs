@@ -7,7 +7,7 @@ public class Card : MonoBehaviour
     public int mana;
     public string type;
 
-    void Play(string type)
+    public void Play(string type)
     {
         /*
         switch (type)
@@ -32,5 +32,5 @@ public class Card : MonoBehaviour
 
             }
         */
-        }
     }
+}
