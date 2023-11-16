@@ -20,7 +20,7 @@ public class CardController : MonoBehaviour
     {
         if (mana < card.mana) return mana;
 
-        card.Cast();
+        card.Cast(card.type);
         return (mana - card.mana);
     }
 

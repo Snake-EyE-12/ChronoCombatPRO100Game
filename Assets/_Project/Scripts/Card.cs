@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    int mana;
-    string type;
+    public int mana;
+    public string type;
 
-    void Cast(string type)
+    public void Cast(string type)
     {
-        switch (type)
-            case:
-            "spell"
-                {
-
-            }
-        case:
-            "item"
-                {
-
-            }
-        case:
-            "equipment"
-                {
-
-            }
+        switch (type) {
+            case "spell":
+                break;
+            case "item":
+                break;
+            case "equipment":
+                break;
         }
     }
+}
