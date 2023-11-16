@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     int PlayCard(int mana, Card card)
     {
         if (mana < card.mana) return mana;
@@ -23,9 +11,4 @@ public class CardController : MonoBehaviour
         card.Cast();
         return (mana - card.mana);
     }
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 };
