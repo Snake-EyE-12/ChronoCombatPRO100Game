@@ -7,9 +7,6 @@ public class Card : MonoBehaviour
     public int mana;
     public string type;
 
-    public void Cast(string type)
-    {
-    }
     public void Play(string type)
     {
         switch (type) {
