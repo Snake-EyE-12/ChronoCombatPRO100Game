@@ -6,6 +6,7 @@ public class Strike : Action
 {
     public override void OnPlay()
     {
+        Debug.Log("Strike Played");
         // Controller.DealDmg(6);
     }
 }

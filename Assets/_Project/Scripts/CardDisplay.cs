@@ -10,4 +10,13 @@ public class CardDisplay : MonoBehaviour
     public void CollectCard() {
         
     }
+    private void Update() {
+        cardSprite.sprite = card.sprite;
+    }
+    public void Clicked() {
+        card.OnPlay();
+    }
+    public void SetCard(Card card) {
+        this.card = card;
+    }
 }
