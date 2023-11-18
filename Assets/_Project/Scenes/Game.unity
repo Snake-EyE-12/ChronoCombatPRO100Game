@@ -754,6 +754,7 @@ GameObject:
   - component: {fileID: 804735113}
   - component: {fileID: 804735112}
   - component: {fileID: 804735111}
+  - component: {fileID: 804735114}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -827,6 +828,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &804735114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804735110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8efcc67c94ef540934ad695cec58f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strike:
+    mana: 2
+    type: Idk
+    sprite: {fileID: 21300000, guid: f229559511a0da6438ce820a73c04edc, type: 3}
+  fireball:
+    mana: 1
+    type: Bob
+    sprite: {fileID: 21300000, guid: 695d4e37f3b25db49ad7b9251e827852, type: 3}
 --- !u!1 &812512138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,18 +2293,6 @@ PrefabInstance:
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_LocalPosition.x

@@ -37,8 +37,11 @@ public class HandDisplay : MonoBehaviour
             handSize = deck.hand.Count;
             for (int i = 0; i < handSize; i++)
             {
-                (Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity) as GameObject).transform.parent = gameObject.transform;
+                //(Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity) as GameObject).transform.parent = gameObject.transform;
+                CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
+                cd.SetCard(CardDatabase.Instance().strike);
                 xpos += 105;
+                ///Test
             }
         }
 
