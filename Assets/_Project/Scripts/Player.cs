@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     int mana;
 
     [SerializeField] private ProgressBar healthBar;
+    [SerializeField] private SceneLoader sceneLoader;
 
 
     //card stuff 
@@ -22,6 +23,9 @@ public class Player : MonoBehaviour
 
     private void Start() {
         playerDeck.currentHand.Add(CardDatabase.Instance().strike);
+        playerDeck.currentHand.Add(CardDatabase.Instance().fireball);
+        playerDeck.currentHand.Add(CardDatabase.Instance().healthPotion);
+        playerDeck.currentHand.Add(CardDatabase.Instance().wizardStaff);
         
     }
 
@@ -53,5 +57,11 @@ public class Player : MonoBehaviour
     public void ChangeHealth(int amount) {
         hp += amount;
         healthBar.slider.value = hp;
+        if(hp <= 0) {
+            die();
+        }
+    }
+    private void die() {
+        sceneLoader.LoadScene();
     }
 }

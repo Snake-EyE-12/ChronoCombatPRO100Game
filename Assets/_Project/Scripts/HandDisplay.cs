@@ -42,8 +42,8 @@ public class HandDisplay : MonoBehaviour
             {
                 //(Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity) as GameObject).transform.parent = gameObject.transform;
                 CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
-                cd.SetCard(CardDatabase.Instance().strike);
-                xpos += 105;
+                cd.SetCard(player.playerDeck.currentHand[i]);
+                xpos += 205;
                 ///Test
             }
         }

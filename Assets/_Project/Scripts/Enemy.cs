@@ -17,17 +17,17 @@ public class Enemy : MonoBehaviour
     int def;
     int atk;
     
-    int Attack() {
+    public int Attack() {
         //
-        int r = 2;
+        int r = 1;
 
         switch (r)
         {
-            case 1: Punch();
+            case 1: return Punch();
                 break;
 
             case 2: 
-            LowBlow();
+            return LowBlow();
              break;
         }
 

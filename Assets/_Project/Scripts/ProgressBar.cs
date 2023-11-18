@@ -8,7 +8,8 @@ public class ProgressBar : MonoBehaviour
 {
     public Slider slider;
     public TMP_Text text;
-    public int max;
+    public float max;
+    float value;
 
     private void Awake()
     {
@@ -23,11 +24,12 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = ((int)(max * slider.value)).ToString() + "/" + ((int)max).ToString();
+        text.text = ((int)(value)).ToString() + "/" + ((int)max).ToString();
     }
 
-    public void SetProgress(float newProgrss, int max)
+    public void SetProgress(float newProgrss, float max)
     {
+        value = newProgrss;
         this.max = max;
         float temp = newProgrss / max;
         slider.value = temp;
