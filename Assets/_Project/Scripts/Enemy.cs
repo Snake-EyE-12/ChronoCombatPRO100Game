@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
 
 
     //basic stats
-     int hp;
+    public int maxHp;
+    public int hp;
     int def;
     int atk;
     

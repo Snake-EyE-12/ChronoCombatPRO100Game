@@ -26,8 +26,10 @@ public class ProgressBar : MonoBehaviour
         text.text = ((int)(max * slider.value)).ToString() + "/" + ((int)max).ToString();
     }
 
-    public void IncrementProgress(float newProgrss)
+    public void SetProgress(float newProgrss, int max)
     {
-        slider.value += newProgrss;
+        this.max = max;
+        float temp = newProgrss / max;
+        slider.value = temp;
     }
 }

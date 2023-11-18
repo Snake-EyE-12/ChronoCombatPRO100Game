@@ -349,6 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14225c5c70a39784ebd3be81991e06ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 40
+  maxHp: 40
   healthBar: {fileID: 172676493}
 --- !u!1 &456933166
 GameObject:
@@ -1828,6 +1830,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 431439317}
   enemy: {fileID: 2000884567}
+  playerHealth: {fileID: 172676493}
+  enemyHealth: {fileID: 759873221}
+  playerMana: {fileID: 456933169}
 --- !u!4 &1898606817
 Transform:
   m_ObjectHideFlags: 0
@@ -2040,6 +2045,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 759873221}
   enemyName: 
+  maxHp: 40
+  hp: 40
 --- !u!1 &2022753431
 GameObject:
   m_ObjectHideFlags: 0
