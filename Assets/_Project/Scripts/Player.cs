@@ -12,12 +12,30 @@ public class Player : MonoBehaviour
     string name;
     int hp;
     int mana;
-    //cards
-    // Items invertory 
 
-    void PickCard() { 
-    //needs cards to start 
 
+    //card stuff 
+    Deck playerDeck;
+    Card[] Currenthand;
+
+
+
+   //items
+
+    void SettingCurrentHand()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            Currenthand[i] = playerDeck.Draw();
+
+        }
+
+    }
+
+    void PickCard(int i) {
+
+        //going to have to talk more as well
+        Currenthand[i].Play("reee");
     }
     // Start is called before the first frame update
     void Start()

@@ -6,6 +6,7 @@ public class Card : MonoBehaviour
 {
     public int mana;
     public string type;
+    public bool discraded = false;
 
     public void Play(string type)
     {
