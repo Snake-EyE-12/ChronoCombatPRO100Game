@@ -9,16 +9,20 @@ public class Player : MonoBehaviour
     //
 
 
-    string name;
+    string cardName;
     int hp;
     int mana;
 
+    [SerializeField] private ProgressBar healthBar;
+
 
     //card stuff 
-    Deck playerDeck;
-    Card[] Currenthand;
+    [HideInInspector] public Deck playerDeck = new Deck();
 
-
+    private void Start() {
+        playerDeck.currentHand.Add(CardDatabase.Instance().strike);
+        
+    }
 
    //items
 
@@ -26,7 +30,7 @@ public class Player : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            Currenthand[i] = playerDeck.Draw();
+            //Currenthand[i] = playerDeck.Draw();
 
         }
 
@@ -35,17 +39,18 @@ public class Player : MonoBehaviour
     void PickCard(int i) {
 
         //going to have to talk more as well
-        Currenthand[i].Play("reee");
+        //Currenthand[i].OnPlay("reee");
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void ChangeHealth(int amount) {
+        hp += amount;
+        healthBar.slider.value = hp;
     }
 }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   public string name;
+
+    [SerializeField] private ProgressBar healthBar;
+
+    public string enemyName;
     //Type???? 
 
 
@@ -50,5 +53,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         
+    }
+    public void takeDamage(int damage) {
+        hp -= damage;
+        if(hp <= 0) die();
+        healthBar.slider.value = hp;
+    }
+    public void die() {
+
     }
 }

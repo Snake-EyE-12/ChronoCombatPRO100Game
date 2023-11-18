@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class HandDisplay : MonoBehaviour
 {
-    public TestDeck deck;
+    public Player player;
     public int handSize;
     public IPanel handContainer;
     List<GameObject> cards;
@@ -21,10 +21,13 @@ public class HandDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (deck.hand.Count != handSize)
+        // if(player == null) Debug.Log("Player NUll");
+        // if(player.playerDeck == null) Debug.Log("Deck NUll");
+        // if(player.playerDeck.currentHand == null) Debug.Log("hand NUll");
+        if (player.playerDeck != null && player.playerDeck.currentHand != null && player.playerDeck.currentHand.Count != handSize)
         {
             xpos = 55;
-            for (int j = 0; j < deck.hand.Count; j++)
+            for (int j = 0; j < player.playerDeck.currentHand.Count; j++)
             {
                 if (cards.Count > j) { 
                 cards[j] = cardPrefab;
@@ -34,7 +37,7 @@ public class HandDisplay : MonoBehaviour
                 }
                 //cards[j] = deck.hand[j].sprite;
             }
-            handSize = deck.hand.Count;
+            handSize = player.playerDeck.currentHand.Count;
             for (int i = 0; i < handSize; i++)
             {
                 //(Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity) as GameObject).transform.parent = gameObject.transform;
