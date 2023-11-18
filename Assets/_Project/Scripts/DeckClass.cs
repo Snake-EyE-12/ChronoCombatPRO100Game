@@ -6,9 +6,9 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     List<Card> deck = new List<Card>();
-    int currentCardIndex = -1;
-    //List<Card> discarded = new List<Card>();
-    //int discradSize = 0;
+    List<Card> discarded = new List<Card>();
+    List<Card> currentHand = new List<Card>();
+    int discradSize = 0;
 
     void Discarded(int i) {
 
@@ -31,11 +31,10 @@ public class Deck : MonoBehaviour
     }
 
 
-        public Card Draw() {
+        public void Draw() {
 
-        currentCardIndex++;
-            
-            return deck[currentCardIndex];
+        currentHand.Add(deck[0]);
+        discarded.RemoveAt(0);
          
         }
 
@@ -59,6 +58,14 @@ public class Deck : MonoBehaviour
             }
             return null;
         }
+
+
+    public void DiscradCard(int i)
+    {
+        discarded.Add(currentHand[i]);
+        currentHand.RemoveAt(0);
+
+    }
 
 
     // Start is called before the first frame update
