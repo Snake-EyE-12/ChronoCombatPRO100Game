@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class HandDisplay : MonoBehaviour
 {
     public TestDeck deck;
+    //private 
     public int handSize;
     public IPanel handContainer;
     List<GameObject> cards;
@@ -16,6 +17,7 @@ public class HandDisplay : MonoBehaviour
     void Start()
     {
         cards = new List<GameObject>();
+        
     }
 
     // Update is called once per frame
