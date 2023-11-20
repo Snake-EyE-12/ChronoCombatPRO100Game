@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spell : Card
+public class PocketSand : Action
 {
-    public int castingTime;
-
     public override void OnPlay()
     {
-
+        // bool enemyStunned = true;
     }
 }

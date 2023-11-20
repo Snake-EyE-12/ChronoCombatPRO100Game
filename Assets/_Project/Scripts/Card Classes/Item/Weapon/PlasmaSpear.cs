@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spell : Card
+public class PlasmaSpear : Weapon
 {
-    public int castingTime;
-
     public override void OnPlay()
     {
-
+        // Player.inventory.Add(PlasmaSpear);
     }
 }
