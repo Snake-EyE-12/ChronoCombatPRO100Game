@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Deck : MonoBehaviour
+public class Deck
 {
     List<Card> deck = new List<Card>();
     List<Card> discarded = new List<Card>();
-    List<Card> currentHand = new List<Card>();
+    public List<Card> currentHand = new List<Card>();
     int discradSize = 0;
 
     void Discarded(int i) {
 
         //maybe right
-        deck[i].discraded = true;
-        
+        //deck[i].discraded = true;
+
     }
 
     void Shovel()
@@ -31,33 +30,41 @@ public class Deck : MonoBehaviour
     }
 
 
-        public void Draw() {
+    public void Draw() {
 
         currentHand.Add(deck[0]);
         discarded.RemoveAt(0);
-         
-        }
+
+    }
 
 
 
-        void AddCard()
+    void AddCard()
+    {
+        //talk with team
+    }
+
+
+    Card SearchForCard(string name)  {
+
+        for(int i = 0; i <= deck.Count; i++)
         {
-            //talk with team
-        }
-    
+            // if (deck[i].name == name)
+            // {
+            //     return deck[i];
+            // }
 
-        Card SearchForCard(string name)  {
-
-            for(int i = 0; i <= deck.Count; i++)
-            {
-                if (deck[i].name == name)
-                {
-                    return deck[i];
-                }
-                
-            }
-            return null;
         }
+        return null;
+    }
+
+
+    public void DiscradCard(int i)
+    {
+        discarded.Add(currentHand[i]);
+        currentHand.RemoveAt(0);
+
+    }
 
 
     public void DiscradCard(int i)
@@ -71,12 +78,12 @@ public class Deck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

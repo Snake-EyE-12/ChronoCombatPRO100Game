@@ -4,26 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   public string name;
+
+    [SerializeField] private ProgressBar healthBar;
+
+    public string enemyName;
     //Type???? 
 
 
     //basic stats
-     int hp;
+    public int maxHp;
+    public int hp;
     int def;
     int atk;
     
-    int Attack() {
+    public int Attack() {
         //
-        int r = 2;
+        int r = 1;
 
         switch (r)
         {
-            case 1: Punch();
+            case 1: return Punch();
                 break;
 
             case 2: 
-            LowBlow();
+            return LowBlow();
              break;
         }
 
@@ -50,5 +54,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         
+    }
+    public void takeDamage(int damage) {
+        hp -= damage;
+        if(hp <= 0) die();
+        healthBar.slider.value = hp;
+    }
+    public void die() {
+
     }
 }

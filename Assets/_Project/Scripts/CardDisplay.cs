@@ -8,6 +8,17 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] private Card card;
     [SerializeField] private Image cardSprite;
     public void CollectCard() {
-        
+        //Find Player
+        //Add this card to player
+        //Player.AddCard(card)
+    }
+    private void Update() {
+        cardSprite.sprite = card.sprite;
+    }
+    public void Play() {
+        card.OnPlay();
+    }
+    public void SetCard(Card card) {
+        this.card = card;
     }
 }
