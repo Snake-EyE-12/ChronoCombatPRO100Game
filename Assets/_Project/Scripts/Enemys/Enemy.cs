@@ -14,33 +14,12 @@ public class Enemy : MonoBehaviour
     //basic stats
     public int maxHp;
     public int hp;
-    int def;
-    int atk;
+    public int def;
+    public int atk;
     
-    int Attack() {
+    void Attack() {
         //
-        int r = 2;
-
-        switch (r)
-        {
-            case 1: Punch();
-                break;
-
-            case 2: 
-            LowBlow();
-             break;
-        }
-
-        return -1;
-    }
-
-    int Punch() {
-        return atk + 1;
-    }
-
-    int LowBlow() {
-        return 10000000;
-
+        CombatController.Instance().DealDamageToPlayer(69);
     }
 
 
@@ -60,7 +39,21 @@ public class Enemy : MonoBehaviour
         if(hp <= 0) die();
         healthBar.slider.value = hp;
     }
+
+
+    #region methods_for_things
     public void die() {
 
     }
+
+
+    protected int RandomMove(int min, int max)
+    {
+        Random r = new Random();
+        
+        int num = r.Next(min, max);
+
+        return num;
+    }
+    #endregion
 }
