@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 7563923832290703337}
   - component: {fileID: 7563923832290703336}
   m_Layer: 5
-  m_Name: Card
+  m_Name: CardCollectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7563923832290703337}
         m_TargetAssemblyTypeName: CardDisplay, Assembly-CSharp
-        m_MethodName: Clicked
+        m_MethodName: CollectCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

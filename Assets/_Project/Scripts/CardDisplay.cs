@@ -15,10 +15,8 @@ public class CardDisplay : MonoBehaviour
     private void Update() {
         cardSprite.sprite = card.sprite;
     }
-    public void Clicked() {
-        if(true) //Check Which Mode
+    public void Play() {
         card.OnPlay();
-        else CollectCard();
     }
     public void SetCard(Card card) {
         this.card = card;
