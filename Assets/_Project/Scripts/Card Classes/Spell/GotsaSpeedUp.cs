@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GotsaSpeedUp : Spell
 {
+    public GotsaSpeedUp()
+    {
+        manaCost = 3;
+    }
+
     public override void OnPlay()
     {
         /*
