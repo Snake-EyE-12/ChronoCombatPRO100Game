@@ -18,7 +18,7 @@ public class CombatController : Singleton<CombatController>
     {
         enemy.takeDamage(damage);
         changeHealthBar();
-        DealDamageToPlayer(enemy.Attack());
+        //DealDamageToPlayer(enemy.Attack());
     }
     public void changeHealthBar()
     {

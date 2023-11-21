@@ -59,15 +59,7 @@ public class Deck
     }
 
 
-    public void DiscradCard(int i)
-    {
-        discarded.Add(currentHand[i]);
-        currentHand.RemoveAt(0);
-
-    }
-
-
-    public void DiscradCard(int i)
+    public void DiscardCard(int i)
     {
         discarded.Add(currentHand[i]);
         currentHand.RemoveAt(0);
