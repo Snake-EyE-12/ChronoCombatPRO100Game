@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public int def;
     public int atk;
     
-    void Attack() {
+    public void Attack() {
         //
         CombatController.Instance().DealDamageToPlayer(69);
     }
@@ -49,9 +49,8 @@ public class Enemy : MonoBehaviour
 
     protected int RandomMove(int min, int max)
     {
-        Random r = new Random();
         
-        int num = r.Next(min, max);
+        int num = Random.Range(min, max);
 
         return num;
     }
