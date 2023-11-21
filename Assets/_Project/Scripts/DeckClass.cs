@@ -67,6 +67,14 @@ public class Deck
     }
 
 
+    public void DiscradCard(int i)
+    {
+        discarded.Add(currentHand[i]);
+        currentHand.RemoveAt(0);
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
