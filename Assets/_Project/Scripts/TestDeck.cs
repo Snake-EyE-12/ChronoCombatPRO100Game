@@ -9,15 +9,16 @@ public class TestDeck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hand.Add(new Card());
+        /*
         hand.Add(new Card());
         deck.Add(new Card());
         deck.Add(new Card());
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-}   
+}

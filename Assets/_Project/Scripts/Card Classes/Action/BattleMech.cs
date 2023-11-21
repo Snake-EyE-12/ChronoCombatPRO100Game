@@ -10,6 +10,6 @@ public class BattleMech : Action
     }
     public override void OnPlay()
     {
-        // bool battleMech = true;
+        EffectController.Instance().battleMech = true;
     }
 }

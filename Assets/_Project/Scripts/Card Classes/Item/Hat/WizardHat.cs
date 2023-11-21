@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class WizardHat : Hat
 {
+    WizardHat wizardHat = new WizardHat();
     public override void OnPlay()
     {
-       // Player.inventory.Add(WizardHat);
+        InventoryManager.Instance().EquipItem(wizardHat);
+    }
+    public override void OnEquip()
+    {
+        EffectController.Instance().wizardHat = true;
+    }
+
+    public override void OnUnequipped()
+    {
+        EffectController.Instance().wizardHat = false;
     }
 }

@@ -15,7 +15,7 @@ public class GotsaSpeedUp : Spell
         if (castingTime == 0)
         {
             Deck.Draw(2);
-            bool spellReduce = true;
+            EffectController.Instance().gotsaSpeedUp = true;
             return;
         }
         castingTime--;

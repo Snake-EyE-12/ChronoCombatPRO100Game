@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class WizardStaff : Weapon
 {
+    WizardStaff wizardStaff = new WizardStaff();
+
     public override void OnPlay()
     {
-        // Controller.Equip("WizardStaff");
+        InventoryManager.Instance().EquipItem(wizardStaff);
+    }
+
+    public override void OnEquip()
+    {
+        // Decide which approach to take
+        EffectController.Instance().wizardStaff = true;
+        EffectController.Instance().castCost--;
+    }
+
+    public override void OnUnequipped()
+    {
+        // Same here
+        EffectController.Instance().wizardStaff = false;
+        EffectController.Instance().castCost++;
     }
 }
