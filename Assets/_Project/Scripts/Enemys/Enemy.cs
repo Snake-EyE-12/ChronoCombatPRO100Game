@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public int hp;
     public int def;
     public int atk;
-
+    
     void Attack() {
         //
         CombatController.Instance().DealDamageToPlayer(69);
@@ -26,13 +26,13 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     public void takeDamage(int damage) {
         hp -= damage;
@@ -49,8 +49,9 @@ public class Enemy : MonoBehaviour
 
     protected int RandomMove(int min, int max)
     {
-
-        int num = Random.Range(min, max);
+        Random r = new Random();
+        
+        int num = r.Next(min, max);
 
         return num;
     }
