@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Fireball : Spell
 {
+
+    public Fireball()
+    {
+        manaCost = 3;
+    }
     public override void OnPlay()
     {
         Debug.Log("Fireball Played");

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Garson : Action
 {
+
+    public Garson()
+    {
+        manaCost = 4;
+    }
     public override void OnPlay()
     {
         /*

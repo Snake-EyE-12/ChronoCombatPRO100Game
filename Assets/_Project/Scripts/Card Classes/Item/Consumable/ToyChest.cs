@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ToyChest : Consumable
 {
+    public ToyChest()
+    {
+        manaCost = 3;
+    }
+
     public override void OnPlay()
     {
         // discuss how to implement

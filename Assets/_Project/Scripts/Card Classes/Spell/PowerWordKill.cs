@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PowerWordKill : Spell
 {
+    public PowerWordKill()
+    {
+        manaCost = 6;
+    }
+
     public override void OnPlay()
     {
         /*

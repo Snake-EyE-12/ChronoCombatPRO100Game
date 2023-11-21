@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Strike : Action
 {
+    public Strike()
+    {
+        manaCost = 1;
+    }
+
     public override void OnPlay()
     {
         Debug.Log("Strike Played");
