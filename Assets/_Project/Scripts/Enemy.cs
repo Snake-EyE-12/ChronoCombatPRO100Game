@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public int def;
     public int atk;
 
-    void Attack() {
+    public void Attack() {
         //
         CombatController.Instance().DealDamageToPlayer(69);
     }
