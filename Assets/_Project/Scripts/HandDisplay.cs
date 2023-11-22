@@ -26,7 +26,7 @@ public class HandDisplay : MonoBehaviour
         // if(player.playerDeck.currentHand == null) Debug.Log("hand NUll");
         if (player.playerDeck != null && player.playerDeck.currentHand != null && player.playerDeck.currentHand.Count != handSize)
         {
-            xpos = 55;
+            xpos = Screen.width / 20;
             for (int j = 0; j < player.playerDeck.currentHand.Count; j++)
             {
                 if (cards.Count > j) { 
@@ -43,7 +43,7 @@ public class HandDisplay : MonoBehaviour
                 //(Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity) as GameObject).transform.parent = gameObject.transform;
                 CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
                 cd.SetCard(player.playerDeck.currentHand[i]);
-                xpos += 205;
+                xpos += Screen.width / 10;
                 ///Test
             }
         }
