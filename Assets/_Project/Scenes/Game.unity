@@ -1855,22 +1855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8efcc67c94ef540934ad695cec58f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strike:
-    mana: 2
-    type: Idk
-    sprite: {fileID: 21300000, guid: e9ebec0734543b64ab71a0fae3b91e63, type: 3}
-  fireball:
-    mana: 1
-    type: Bob
-    sprite: {fileID: 21300000, guid: ced46465d61fa374b8630274be43825e, type: 3}
-  healthPotion:
-    mana: 0
-    type: 
-    sprite: {fileID: 21300000, guid: 97976fb8fc731f24ab98479f75706e6c, type: 3}
-  wizardStaff:
-    mana: 0
-    type: 
-    sprite: {fileID: 21300000, guid: 11ae1df80b256f8459a9706afda101a3, type: 3}
 --- !u!1 &1921964471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,13 +2047,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2000884563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8589c68d0eca549a81a1ecf41e8b3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 34858f9813153e149b0e5cb6e8785517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 759873221}
-  enemyName: Bob
+  enemyName: lol
   maxHp: 40
   hp: 40
+  def: 0
+  atk: 0
 --- !u!1 &2022753431
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,9 +2,10 @@ using Guymon.DesignPatterns;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MapGraph : Singleton<MapGraph>
+public class MapGraph : MonoBehaviour
 {
     public Sprite currentSprite;
     public Sprite choice1;
@@ -20,6 +21,16 @@ public class MapGraph : Singleton<MapGraph>
 
     public void Start()
     {
+        if (MapManager.Instance().sprite[0] != null)
+        {
+            currentSprite = MapManager.Instance().sprite[0];
+            choice1 = MapManager.Instance().sprite[1];
+            choice2 = MapManager.Instance().sprite[2];
+            levelCount = MapManager.Instance().levelCount;
+        }
+    }
+    public void Update()
+    {
         currentSpace.GetComponent<Image>().sprite = currentSprite;
         space1.GetComponent<Image>().sprite = choice1;
         space2.GetComponent<Image>().sprite = choice2;
@@ -34,9 +45,15 @@ public class MapGraph : Singleton<MapGraph>
         {
             currentSprite = choice2;
         }
+
+        choice1 = createnextChoices();
+        choice2 = createnextChoices();
+
+        MapManager.Instance().setManager(currentSprite, choice1, choice2, levelCount);
+
         if (currentSprite == fightSpace)
         {
-            //load fight
+            SceneManager.LoadScene("Game");
         }
         else if (currentSprite == treasureSpace) {
             //load Treasure
@@ -47,25 +64,19 @@ public class MapGraph : Singleton<MapGraph>
         {
             //load boss
         }
-
-        createnextChoices(space1);
-        createnextChoices(space2);
-
     }
 
-    public void createnextChoices(GameObject choice)
+    public Sprite createnextChoices()
     {
         switch (Random.Range(0, 3))
         {
             case 0:
-                choice.GetComponent<Image>().sprite = fightSpace;
-                break;
+                return fightSpace;
             case 1:
-                choice.GetComponent<Image>().sprite = treasureSpace;
-                break;
+                return treasureSpace;
             case 2:
-                choice.GetComponent<Image>().sprite = HealSpace;
-                break;
+                return HealSpace;
         }
+        return null;
     }
 }
