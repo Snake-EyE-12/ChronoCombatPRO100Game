@@ -2501,6 +2501,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7563923832290703336, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563923832290703336, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7563923832290703340, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_Name
       value: Card
