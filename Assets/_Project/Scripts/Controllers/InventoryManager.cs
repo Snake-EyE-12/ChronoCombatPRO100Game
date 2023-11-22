@@ -9,10 +9,17 @@ public class InventoryManager : Singleton<InventoryManager>
     public const int CHEST = 1;
     public const int HAND = 2;
     public const int BACKPACK = 3;
-    public InventorySlot[] slots = new InventorySlot[4];
+    public InventorySlot[] slots = {
+        new InventorySlot(),
+        new InventorySlot(),
+        new InventorySlot(),
+        new InventorySlot(),
+    };
+    
     public void EquipItem(Item item)
     {
-        slots[item.slot].swap(item);
+        int index = item.slot;
+        slots[index].swap(item);
     }
 }
 

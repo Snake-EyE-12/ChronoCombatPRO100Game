@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class WizardStaff : Weapon
 {
-    WizardStaff wizardStaff = new WizardStaff();
 
     public override void OnPlay()
     {
-        InventoryManager.Instance().EquipItem(wizardStaff);
+        InventoryManager.Instance().EquipItem(this);
     }
 
     public override void OnEquip()

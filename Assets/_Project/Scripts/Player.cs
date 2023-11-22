@@ -21,12 +21,14 @@ public class Player : MonoBehaviour
     //card stuff 
     [HideInInspector] public Deck playerDeck = new Deck();
 
-    private void Start()
+    private void Awake()
     {
         playerDeck.currentHand.Add(CardDatabase.Instance().strike);
         playerDeck.currentHand.Add(CardDatabase.Instance().fireball);
         playerDeck.currentHand.Add(CardDatabase.Instance().healthPotion);
         playerDeck.currentHand.Add(CardDatabase.Instance().wizardStaff);
+        playerDeck.currentHand.Add(CardDatabase.Instance().wizardHat);
+        Debug.Log("Cards Added");
 
     }
 

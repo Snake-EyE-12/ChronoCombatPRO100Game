@@ -6,28 +6,28 @@ using UnityEngine;
 public class CardDatabase : Singleton<CardDatabase>
 {
     // Hat
-    public Card wizardHat = new WizardHat();
+    public WizardHat wizardHat = new WizardHat();
 
     // Armor
 
     // Weapon
-    public Card ominousRing = new OminousRing();
-    public Card plasmaSpear = new PlasmaSpear();
-    public Card wizardStaff = new WizardStaff();
+    public OminousRing ominousRing = new OminousRing();
+    public PlasmaSpear plasmaSpear = new PlasmaSpear();
+    public WizardStaff wizardStaff = new WizardStaff();
 
     // Consumable 
-    public Card healthPotion = new HealthPotion();
+    public HealthPotion healthPotion = new HealthPotion();
 
     // Spell
-    public Card fireball = new Fireball();
-    public Card gotsSpeedUp = new GotsaSpeedUp();
-    public Card powerWordKill = new PowerWordKill();
+    public Fireball fireball = new Fireball();
+    public GotsaSpeedUp gotsSpeedUp = new GotsaSpeedUp();
+    public PowerWordKill powerWordKill = new PowerWordKill();
 
     // Action
-    public Card battleMech = new BattleMech();
-    public Card garson = new Garson();
-    public Card pocketSand = new PocketSand();
-    public Card strike = new Strike();
+    public BattleMech battleMech = new BattleMech();
+    public Garson garson = new Garson();
+    public PocketSand pocketSand = new PocketSand();
+    public Strike strike = new Strike();
 
     public List<Card> cardList = new List<Card>();
 

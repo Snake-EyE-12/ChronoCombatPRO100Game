@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class OminousRing : Weapon
 {
-    OminousRing ominousRing = new OminousRing();
     public override void OnPlay()
     {
-        InventoryManager.Instance().EquipItem(ominousRing);
+        InventoryManager.Instance().EquipItem(this);
     }
 
     public override void OnEquip()
