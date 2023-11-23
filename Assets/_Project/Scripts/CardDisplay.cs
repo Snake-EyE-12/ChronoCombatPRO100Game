@@ -16,7 +16,7 @@ public class CardDisplay : MonoBehaviour
         cardSprite.sprite = card.sprite;
     }
     public void Play() {
-        card.OnPlay();
+        CombatController.Instance().playCard(card);
     }
     public void SetCard(Card card) {
         this.card = card;

@@ -14,6 +14,15 @@ public class CombatController : Singleton<CombatController>
         player.ChangeHealth(-damage);
         changeHealthBar();
     }
+
+    public void playCard(Card card)
+    {
+        if (card.manaCost > player.mana)
+        {
+            player.mana -= card.manaCost;
+            card.OnPlay();
+        }
+    }
     public void DealDamageToEnemy(int damage)
     {
         enemy.takeDamage(damage);
@@ -24,7 +33,7 @@ public class CombatController : Singleton<CombatController>
     {
         playerHealth.SetProgress(player.hp, player.maxHp);
         enemyHealth.SetProgress(enemy.hp, enemy.maxHp);
-
+        playerMana.SetProgress(player.mana, player.maxMana);
     }
     public void Start()
     {

@@ -12,7 +12,9 @@ public class Player : MonoBehaviour
     string cardName;
     public int hp;
     public int maxHp;
-    int mana;
+    public int maxMana;
+    public int mana;
+    public int turn;
 
     [SerializeField] private ProgressBar healthBar;
     [SerializeField] private SceneLoader sceneLoader;
