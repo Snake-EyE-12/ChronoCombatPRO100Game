@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlasmaSpear : Weapon
 {
     public override void OnPlay()
     {
-        // Player.inventory.Add(PlasmaSpear);
+        InventoryManager.Instance().EquipItem(this);
+    }
+
+    public override void OnEquip()
+    {
+        EffectController.Instance().plasmaSpear = true;
+    }
+
+    public override void OnUnequipped()
+    {
+        EffectController.Instance().plasmaSpear = false;
     }
 }

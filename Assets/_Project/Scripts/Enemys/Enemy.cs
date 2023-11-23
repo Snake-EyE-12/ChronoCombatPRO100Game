@@ -16,8 +16,9 @@ public class Enemy : MonoBehaviour
     public int hp;
     public int def;
     public int atk;
-    
-    public void Attack() {
+
+    public void Attack()
+    {
         //
         CombatController.Instance().DealDamageToPlayer(69);
     }
@@ -26,30 +27,32 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void takeDamage(int damage) {
+    public void takeDamage(int damage)
+    {
         hp -= damage;
-        if(hp <= 0) die();
+        if (hp <= 0) die();
         healthBar.slider.value = hp;
     }
 
 
     #region methods_for_things
-    public void die() {
+    public void die()
+    {
 
     }
 
 
     protected int RandomMove(int min, int max)
     {
-        
+
         int num = Random.Range(min, max);
 
         return num;

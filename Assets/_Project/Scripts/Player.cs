@@ -21,19 +21,22 @@ public class Player : MonoBehaviour
     //card stuff 
     [HideInInspector] public Deck playerDeck = new Deck();
 
-    private void Start() {
+    private void Awake()
+    {
         playerDeck.currentHand.Add(CardDatabase.Instance().strike);
         playerDeck.currentHand.Add(CardDatabase.Instance().fireball);
         playerDeck.currentHand.Add(CardDatabase.Instance().healthPotion);
         playerDeck.currentHand.Add(CardDatabase.Instance().wizardStaff);
-        
+        playerDeck.currentHand.Add(CardDatabase.Instance().wizardHat);
+        Debug.Log("Cards Added");
+
     }
 
-   //items
+    //items
 
     void SettingCurrentHand()
     {
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             //Currenthand[i] = playerDeck.Draw();
 
@@ -41,27 +44,31 @@ public class Player : MonoBehaviour
 
     }
 
-    void PickCard(int i) {
+    void PickCard(int i)
+    {
 
         //going to have to talk more as well
         //Currenthand[i].OnPlay("reee");
     }
     // Start is called before the first frame update
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void ChangeHealth(int amount) {
+    public void ChangeHealth(int amount)
+    {
         hp += amount;
         healthBar.slider.value = hp;
-        if(hp <= 0) {
+        if (hp <= 0)
+        {
             die();
         }
     }
-    private void die() {
+    private void die()
+    {
         sceneLoader.LoadScene();
     }
 }

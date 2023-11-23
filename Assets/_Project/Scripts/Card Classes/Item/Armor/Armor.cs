@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hat : Item
+[System.Serializable]
+public class Armor : Item
 {
-
-    public Hat()
+    public Armor()
     {
-        slot = 0;
+        slot = 1;
     }
     public override void OnPlay()
     {

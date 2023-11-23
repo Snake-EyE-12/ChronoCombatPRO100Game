@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class GotsaSpeedUp : Spell
 {
     public GotsaSpeedUp()
@@ -15,7 +16,7 @@ public class GotsaSpeedUp : Spell
         if (castingTime == 0)
         {
             Deck.Draw(2);
-            bool spellReduce = true;
+            EffectController.Instance().gotsaSpeedUp = true;
             return;
         }
         castingTime--;
