@@ -23,4 +23,7 @@ public class CardDisplay : MonoBehaviour
         Debug.Log("Current Card: " + card);
         this.card = card;
     }
+    public void RemoveSimilarCard() {
+        
+    }
 }
