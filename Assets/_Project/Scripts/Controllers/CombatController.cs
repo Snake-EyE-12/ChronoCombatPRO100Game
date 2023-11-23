@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Guymon.DesignPatterns;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatController : Singleton<CombatController>
 {
@@ -38,5 +39,13 @@ public class CombatController : Singleton<CombatController>
     public void Start()
     {
         changeHealthBar();
+    }
+
+    public void Update()
+    {
+        if (enemy.hp <= 0)
+        {
+            SceneManager.LoadScene("Map");
+        }
     }
 }

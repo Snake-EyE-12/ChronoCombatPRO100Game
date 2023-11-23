@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class BattleMech : Action
 {
     public BattleMech()
@@ -10,6 +11,6 @@ public class BattleMech : Action
     }
     public override void OnPlay()
     {
-        // bool battleMech = true;
+        EffectController.Instance().battleMech = true;
     }
 }
