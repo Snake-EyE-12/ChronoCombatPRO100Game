@@ -25,13 +25,12 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        playerDeck.currentHand.Add(CardDatabase.Instance().strike);
-        playerDeck.currentHand.Add(CardDatabase.Instance().fireball);
-        playerDeck.currentHand.Add(CardDatabase.Instance().healthPotion);
-        playerDeck.currentHand.Add(CardDatabase.Instance().wizardStaff);
-        playerDeck.currentHand.Add(CardDatabase.Instance().wizardHat);
+        playerDeck.deck.Add(CardDatabase.Instance().strike);
+        playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        playerDeck.deck.Add(CardDatabase.Instance().fireball);
         Debug.Log("Cards Added");
-
+        SettingCurrentHand();
     }
 
     //items
@@ -40,7 +39,7 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            //Currenthand[i] = playerDeck.Draw();
+            playerDeck.Draw();
 
         }
 
@@ -48,9 +47,6 @@ public class Player : MonoBehaviour
 
     void PickCard(int i)
     {
-
-        //going to have to talk more as well
-        //Currenthand[i].OnPlay("reee");
     }
     // Start is called before the first frame update
 

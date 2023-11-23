@@ -18,7 +18,7 @@ public class CombatController : Singleton<CombatController>
 
     public void playCard(Card card)
     {
-        if (card.manaCost > player.mana)
+        if (card.manaCost < player.mana)
         {
             player.mana -= card.manaCost;
             card.OnPlay();
@@ -39,6 +39,8 @@ public class CombatController : Singleton<CombatController>
     public void Start()
     {
         changeHealthBar();
+
+        
     }
 
     public void Update()

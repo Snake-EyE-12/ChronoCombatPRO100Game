@@ -68,7 +68,7 @@ public class MapGraph : MonoBehaviour
 
     public Sprite createnextChoices()
     {
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 1))
         {
             case 0:
                 return fightSpace;

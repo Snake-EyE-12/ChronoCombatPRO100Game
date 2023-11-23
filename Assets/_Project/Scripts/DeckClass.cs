@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Deck
 {
-    List<Card> deck = new List<Card>();
+    public List<Card> deck = new List<Card>();
     List<Card> discarded = new List<Card>();
     public List<Card> currentHand = new List<Card>();
     int discradSize = 0;
@@ -33,7 +33,7 @@ public class Deck
     public void Draw() {
 
         currentHand.Add(deck[0]);
-        discarded.RemoveAt(0);
+        deck.RemoveAt(0);
 
     }
 
