@@ -8,6 +8,7 @@ public class CombatController : MonoBehaviour
 {
 
     public Player player;
+    public GameObject EnemyObject;
     public Enemy enemy;
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
@@ -17,6 +18,7 @@ public class CombatController : MonoBehaviour
         CombatInfo.Instance().setCombatInfor();
         player = CombatInfo.Instance().player;
         enemy = CombatInfo.Instance().enemy;
+        //change enemy to random here
         player.playerDeck.deck.Add(CardDatabase.Instance().strike);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);

@@ -1904,6 +1904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a094aa91afb1c2e4cbb832ce7b09ab5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyObject: {fileID: 2000884563}
   playerHealth: {fileID: 172676493}
   enemyHealth: {fileID: 759873221}
   playerMana: {fileID: 456933169}
