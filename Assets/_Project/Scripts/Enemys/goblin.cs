@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : Enemy
+public class goblin : Enemy
 {
 
     void Attack()
@@ -33,6 +33,7 @@ public class Slime : Enemy
     }
 
     #region movesList
+    #region movesList
     int Atk1()
     {
         moveName = "kick";
@@ -56,17 +57,16 @@ public class Slime : Enemy
 
     }
     #endregion
-
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
-
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

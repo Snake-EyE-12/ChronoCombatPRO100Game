@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private ProgressBar healthBar;
 
     public string enemyName;
+    public string moveName;
     //Type???? 
 
 
