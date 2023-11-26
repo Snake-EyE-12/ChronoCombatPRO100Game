@@ -12,14 +12,14 @@ public class GotsaSpeedUp : Spell
 
     public override void OnPlay()
     {
-        /*
+        
         if (castingTime == 0)
         {
-            Deck.Draw(2);
+            //Deck.Draw();
             EffectController.Instance().gotsaSpeedUp = true;
             return;
         }
         castingTime--;
-        */
+        
     }
 }

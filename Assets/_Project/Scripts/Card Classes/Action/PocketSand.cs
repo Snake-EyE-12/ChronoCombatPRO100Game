@@ -5,8 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class PocketSand : Action
 {
+    public PocketSand()
+    {
+        manaCost = 1;
+    }
     public override void OnPlay()
     {
-        // bool enemyStunned = true;
+        EffectController.Instance().enemyStunned = true;
     }
 }

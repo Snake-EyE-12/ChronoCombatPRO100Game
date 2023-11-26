@@ -7,7 +7,7 @@ public class BattleMech : Action
 {
     public BattleMech()
     {
-        manaCost = 0;
+        manaCost = 3;
     }
     public override void OnPlay()
     {
