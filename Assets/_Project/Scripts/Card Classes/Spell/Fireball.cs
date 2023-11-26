@@ -14,12 +14,12 @@ public class Fireball : Spell
     {
         Debug.Log("Fireball Played");
         CombatController.Instance().DealDamageToPlayer(15);
-        /*
+        
         if (castingTime == 0)
         {
-        Controller.DealDmg(15);
+        CombatController.Instance().DealDamageToEnemy(15);
         }
         castingTime--;
-        */
+        
     }
 }
