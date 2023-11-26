@@ -47,7 +47,7 @@ public class CombatController : Singleton<CombatController>
     {
         if (enemy.hp <= 0)
         {
-
+            player.playerDeck.Shovel();
             SceneManager.LoadScene("CardPicker");
         }
     }
