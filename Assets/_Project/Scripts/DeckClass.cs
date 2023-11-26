@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Deck
@@ -39,11 +40,16 @@ public class Deck
 
 
 
-    void AddCard()
+    void AddCardDeck(Card card)
     {
+        deck.Add(card);
         //talk with team
     }
 
+    void AddCardHand(Card card)
+    {
+        currentHand.Add(card);
+    }
 
     Card SearchForCard(string name)  {
 
