@@ -12,7 +12,7 @@ public class Garson : Action
     }
     public override void OnPlay()
     {
-        CombatController.Instance().DealDamageToEnemy(2);
+        CombatInfo.Instance().controller.DealDamageToEnemy(2);
         EffectController.Instance().reflect = true;
     }
 }

@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 431439316}
   - component: {fileID: 431439315}
   - component: {fileID: 431439314}
-  - component: {fileID: 431439317}
   - component: {fileID: 431439318}
   - component: {fileID: 431439319}
   m_Layer: 0
@@ -339,25 +338,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &431439317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431439313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14225c5c70a39784ebd3be81991e06ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 40
-  maxHp: 40
-  maxMana: 12
-  mana: 12
-  turn: 0
-  healthBar: {fileID: 172676493}
-  sceneLoader: {fileID: 431439318}
 --- !u!114 &431439318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,7 +893,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7951b7aa0b87b5b4791122f114af0746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 431439317}
   handSize: 0
   cardPrefab: {fileID: 7563923832290703340, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
 --- !u!114 &812512141
@@ -1903,12 +1882,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1898606817}
   - component: {fileID: 1898606816}
+  - component: {fileID: 1898606820}
   - component: {fileID: 1898606818}
   - component: {fileID: 1898606819}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: GameController
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
@@ -1924,8 +1904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a094aa91afb1c2e4cbb832ce7b09ab5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 431439317}
-  enemy: {fileID: 2000884567}
   playerHealth: {fileID: 172676493}
   enemyHealth: {fileID: 759873221}
   playerMana: {fileID: 456933169}
@@ -1986,6 +1964,12 @@ MonoBehaviour:
     temp: 0
     sprite: {fileID: 21300000, guid: 97976fb8fc731f24ab98479f75706e6c, type: 3}
     slot: 3
+  toyChest:
+    manaCost: 3
+    type: 
+    temp: 0
+    sprite: {fileID: 0}
+    slot: 3
   fireball:
     manaCost: 3
     type: 
@@ -2042,7 +2026,23 @@ MonoBehaviour:
   ominousRing: 0
   gotsaSpeedUp: 0
   battleMech: 0
+  enemyStunned: 0
+  reflect: 0
   castCost: 0
+  armorValue: 0
+--- !u!114 &1898606820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898606815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a28ef12fb14fec469f003f099db0f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!1 &1921964471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,7 +2130,6 @@ GameObject:
   - component: {fileID: 2000884566}
   - component: {fileID: 2000884565}
   - component: {fileID: 2000884564}
-  - component: {fileID: 2000884567}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2226,24 +2225,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2000884567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000884563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34858f9813153e149b0e5cb6e8785517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 759873221}
-  enemyName: lol
-  maxHp: 40
-  hp: 40
-  def: 0
-  atk: 0
 --- !u!1 &2022753431
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,11 +23,11 @@ public class HandDisplay : MonoBehaviour
         // if(player == null) Debug.Log("Player NUll");
         // if(player.playerDeck == null) Debug.Log("Deck NUll");
         // if(player.playerDeck.currentHand == null) Debug.Log("hand NUll");
-        if (CombatController.Instance().player.playerDeck != null && CombatController.Instance().player.playerDeck.currentHand != null && CombatController.Instance().player.playerDeck.currentHand.Count != handSize)
+        if (CombatInfo.Instance().controller.player.playerDeck != null && CombatInfo.Instance().controller.player.playerDeck.currentHand != null && CombatInfo.Instance().controller.player.playerDeck.currentHand.Count != handSize)
         {
             Debug.Log("Hand Display Start");
             xpos = Screen.width / 20;
-            for (int j = 0; j < CombatController.Instance().player.playerDeck.currentHand.Count; j++)
+            for (int j = 0; j < CombatInfo.Instance().controller.player.playerDeck.currentHand.Count; j++)
             {
                 if (cards.Count > j) { 
                 cards[j] = cardPrefab;
@@ -37,13 +37,13 @@ public class HandDisplay : MonoBehaviour
                 }
                 //cards[j] = deck.hand[j].sprite;
             }
-            handSize = CombatController.Instance().player.playerDeck.currentHand.Count;
+            handSize = CombatInfo.Instance().controller.player.playerDeck.currentHand.Count;
             for (int i = 0; i < handSize; i++)
             {
                 //(Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity) as GameObject).transform.parent = gameObject.transform;
                 CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
-                Debug.Log(CombatController.Instance().player.playerDeck.currentHand[i]);
-                cd.SetCard(CombatController.Instance().player.playerDeck.currentHand[i]);
+                Debug.Log(CombatInfo.Instance().controller.player.playerDeck.currentHand[i]);
+                cd.SetCard(CombatInfo.Instance().controller.player.playerDeck.currentHand[i]);
                 xpos += Screen.width / 10;
                 ///Test
             }

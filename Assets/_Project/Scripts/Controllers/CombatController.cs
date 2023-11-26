@@ -4,15 +4,28 @@ using Guymon.DesignPatterns;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CombatController : Singleton<CombatController>
+public class CombatController : MonoBehaviour   
 {
+
     public Player player;
     public Enemy enemy;
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
+    private void Awake()
+    {
+        CombatInfo.Instance().setCombatInfor();
+        player = CombatInfo.Instance().player;
+        enemy = CombatInfo.Instance().enemy;
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        CombatInfo.Instance().controller = this;
+        player.SettingStartHand();
+    }
     public void DealDamageToPlayer(int damage) {
-        player.ChangeHealth(-damage);
+        ChangePlayerHealth(-damage);
         changeHealthBar();
     }
 
@@ -26,7 +39,7 @@ public class CombatController : Singleton<CombatController>
     }
     public void DealDamageToEnemy(int damage)
     {
-        enemy.takeDamage(damage);
+        DealEnemyDamage(damage);
         changeHealthBar();
         //DealDamageToPlayer(enemy.Attack());
     }
@@ -43,12 +56,27 @@ public class CombatController : Singleton<CombatController>
         
     }
 
-    public void Update()
+    public void enemyDie()
     {
         if (enemy.hp <= 0)
         {
             player.playerDeck.Shovel();
             SceneManager.LoadScene("CardPicker");
         }
+    }
+    public void ChangePlayerHealth(int amount)
+    {
+        player.hp += amount;
+        playerHealth.slider.value = player.hp;
+        if (player.hp <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+    public void DealEnemyDamage(int damage)
+    {
+        enemy.hp -= damage;
+        if (enemy.hp <= 0) enemyDie();
+        enemyHealth.slider.value = enemy.hp;
     }
 }

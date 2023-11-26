@@ -13,7 +13,7 @@ public class HealthPotion : Consumable
 
     public override void OnPlay()
     {
-        CombatController.Instance().player.ChangeHealth(10);
+        CombatInfo.Instance().controller.ChangePlayerHealth(10);
         //Deck.Remove();
     }
 }

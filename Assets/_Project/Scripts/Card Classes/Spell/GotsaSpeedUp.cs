@@ -15,8 +15,8 @@ public class GotsaSpeedUp : Spell
 
         if (castingTime == 0)
         {
-            CombatController.Instance().player.playerDeck.Draw();
-            CombatController.Instance().player.playerDeck.Draw();
+            CombatInfo.Instance().controller.player.playerDeck.Draw();
+            CombatInfo.Instance().controller.player.playerDeck.Draw();
 
             EffectController.Instance().gotsaSpeedUp = true;
             return;

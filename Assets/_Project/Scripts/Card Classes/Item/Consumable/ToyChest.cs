@@ -23,7 +23,7 @@ public class ToyChest : Consumable
         }
         for (int i = 0; i < 3; i++)
         {
-            CombatController.Instance().player.playerDeck.AddCardHand(cards[Random.Range(0, cards.Count)]);
+            CombatInfo.Instance().controller.player.playerDeck.AddCardHand(cards[Random.Range(0, cards.Count)]);
         }
     }
 }

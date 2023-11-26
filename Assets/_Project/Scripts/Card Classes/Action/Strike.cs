@@ -13,6 +13,6 @@ public class Strike : Action
     public override void OnPlay()
     {
         Debug.Log("Strike Played");
-        CombatController.Instance().DealDamageToEnemy(6);
+        CombatInfo.Instance().controller.DealDamageToEnemy(6);
     }
 }

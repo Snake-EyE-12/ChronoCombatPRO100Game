@@ -26,7 +26,7 @@ public class goblin : Enemy
                 break;
         }
 
-        CombatController.Instance().DealDamageToPlayer(dmg);
+        CombatInfo.Instance().controller.DealDamageToPlayer(dmg);
 
 
 
