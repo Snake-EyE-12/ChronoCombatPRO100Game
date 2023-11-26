@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Map.unity
     guid: ac114299a18a13c43b5dbba83ce72b4b
+  - enabled: 1
+    path: Assets/_Project/Scenes/CardPicker.unity
+    guid: 27ced4d615106cf418f4e6d8624f5858
+  - enabled: 1
+    path: Assets/_Project/Scenes/RemoveCard.unity
+    guid: 72756f76ce7d9124392208be3de50ec3
   m_configObjects: {}

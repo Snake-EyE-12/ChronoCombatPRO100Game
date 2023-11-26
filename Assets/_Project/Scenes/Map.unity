@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae801b18f825f8448440f428f8955aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSprite: {fileID: 21300000, guid: e71d054e279804e479d43a4b5d9812ae, type: 3}
+  currentSprite: {fileID: 21300000, guid: a90252e7362bc1649b8439c543a25244, type: 3}
   choice1: {fileID: 21300000, guid: e71d054e279804e479d43a4b5d9812ae, type: 3}
   choice2: {fileID: 21300000, guid: e71d054e279804e479d43a4b5d9812ae, type: 3}
   treasureSpace: {fileID: 21300000, guid: 1955b9b572c72df418510eced0bc7838, type: 3}

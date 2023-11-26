@@ -47,7 +47,8 @@ public class CombatController : Singleton<CombatController>
     {
         if (enemy.hp <= 0)
         {
-            SceneManager.LoadScene("Map");
+
+            SceneManager.LoadScene("CardPicker");
         }
     }
 }
