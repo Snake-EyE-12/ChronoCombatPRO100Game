@@ -13,6 +13,7 @@ public class ToyChest : Consumable
     public override void OnPlay()
     {
         List<Card> cards = new List<Card>();
+        Deck deck = new Deck();
         foreach (Card card in CardDatabase.Instance().cardList)
         {
             if (card.manaCost <= 3)
@@ -22,8 +23,7 @@ public class ToyChest : Consumable
         }
         for (int i = 0; i < 3; i++)
         {
-            //Deck.currentHand.Add(cards[Random.Range(0, cards.Count)]);
+            CombatController.Instance().player.playerDeck.AddCardHand(cards[Random.Range(0, cards.Count)]);
         }
-
     }
 }

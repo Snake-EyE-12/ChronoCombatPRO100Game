@@ -10,7 +10,8 @@ public class Deck
     public List<Card> currentHand = new List<Card>();
     int discradSize = 0;
 
-    void Discarded(int i) {
+    void Discarded(int i)
+    {
 
         //maybe right
         //deck[i].discraded = true;
@@ -31,7 +32,8 @@ public class Deck
     }
 
 
-    public void Draw() {
+    public void Draw()
+    {
 
         currentHand.Add(deck[0]);
         deck.RemoveAt(0);
@@ -46,14 +48,15 @@ public class Deck
         //talk with team
     }
 
-    void AddCardHand(Card card)
+    public void AddCardHand(Card card)
     {
         currentHand.Add(card);
     }
 
-    Card SearchForCard(string name)  {
+    Card SearchForCard(string name)
+    {
 
-        for(int i = 0; i <= deck.Count; i++)
+        for (int i = 0; i <= deck.Count; i++)
         {
             // if (deck[i].name == name)
             // {
