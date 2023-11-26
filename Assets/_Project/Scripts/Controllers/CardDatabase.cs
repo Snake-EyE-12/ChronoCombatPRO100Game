@@ -9,6 +9,7 @@ public class CardDatabase : Singleton<CardDatabase>
     public WizardHat wizardHat = new WizardHat();
 
     // Armor
+    public WizardRobe wizardRobe = new WizardRobe();
 
     // Weapon
     public OminousRing ominousRing = new OminousRing();
@@ -17,6 +18,7 @@ public class CardDatabase : Singleton<CardDatabase>
 
     // Consumable 
     public HealthPotion healthPotion = new HealthPotion();
+    public ToyChest toyChest = new ToyChest();
 
     // Spell
     public Fireball fireball = new Fireball();
@@ -35,10 +37,12 @@ public class CardDatabase : Singleton<CardDatabase>
     {
         // Items
         cardList.Add(healthPotion);
+        cardList.Add(toyChest);
         cardList.Add(ominousRing);
         cardList.Add(plasmaSpear);
         cardList.Add(wizardStaff);
         cardList.Add(wizardHat);
+        cardList.Add(wizardRobe);
 
         // Spell
         cardList.Add(fireball);
