@@ -18,8 +18,22 @@ public class Deck
 
     }
 
-    void Shovel()
+    public void Shovel()
     {
+        for (int i = 0; i < discarded.Count; i++)
+        {
+            deck.Add(discarded[i]);
+            discarded.RemoveAt(i);
+        }
+        discarded = new List<Card>();
+
+        for (int i = 0; i < currentHand.Count; i++)
+        {
+            deck.Add(currentHand[i]);
+            currentHand.RemoveAt(i);
+        }
+        currentHand = new List<Card>();
+
         for (int i = 0; i < deck.Count; i++)
         {
             Card temp = deck[i];
