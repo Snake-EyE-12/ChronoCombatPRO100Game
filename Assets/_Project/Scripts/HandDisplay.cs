@@ -33,16 +33,27 @@ public class HandDisplay : MonoBehaviour
 
             for (int j = 0; j < CombatInfo.Instance().controller.player.playerDeck.currentHand.Count; j++)
                {
-                if (cards.Count > j)
+                if (handSize > j)
                 {
-                    madeCards[j].SetActive(false);
-                    madeCards.RemoveAt(j);
                     cards[j] = cardPrefab;
-                } else
+                }
+                else
                 {
                     cards.Add(cardPrefab);
                 }
                 //cards[j] = deck.hand[j].sprite;
+            }
+            for (int j = 0; j < CombatInfo.Instance().controller.player.playerDeck.currentHand.Count;)
+            {
+
+                    if (madeCards.Count > j)
+                    {
+                        madeCards[j].SetActive(false);
+                        madeCards.RemoveAt(j);
+                    } else
+                {
+                    j++;
+                }
             }
             handSize = CombatInfo.Instance().controller.player.playerDeck.currentHand.Count;
             for (int i = 0; i < handSize; i++)

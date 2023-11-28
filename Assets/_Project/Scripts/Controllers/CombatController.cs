@@ -13,6 +13,7 @@ public class CombatController : MonoBehaviour
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
     static bool addedCards = false;
+    private int turn = 1;
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
@@ -72,13 +73,21 @@ public class CombatController : MonoBehaviour
 
     public void endTurn()
     {
-
+            turn++;
+        if (turn < 12)
+        {
+            player.mana = turn;
+        } else
+        {
+            player.mana = 12;
+        }
         player.playerDeck.IncrementCasting();
+        player.playerDeck.Draw();
     }
 
     public void playCard(Card card)
     {
-        if (card.manaCost < player.mana)
+        if (card.manaCost <= player.mana)
         {
             player.mana -= card.manaCost;
             changeHealthBar();
