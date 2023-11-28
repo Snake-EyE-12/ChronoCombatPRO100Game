@@ -7,6 +7,7 @@ public class goblin : Enemy
     public goblin()
     {
         hp = RandomNum(9,13);
+        maxHp = hp;
         def = RandomNum(2, 4);
         atk = RandomNum(3, 6);
 

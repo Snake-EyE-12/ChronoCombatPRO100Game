@@ -34,7 +34,7 @@ public class CombatController : MonoBehaviour
 
     private void SetEnemy() {
 
-        int rando = Random.Range(1,2);
+        int rando = Random.Range(1,3);
 
         switch (rando)
         {
@@ -51,15 +51,15 @@ public class CombatController : MonoBehaviour
                 {
                     case 1:
                         EnemyObject.GetComponent<Animator>().Play("SlimeBlueIdle", 0);
-                        EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.5f, 6f);
                         break;
                     case 2:
-                        Resources.Load<Sprite>("Sprite Sheet - Red Idle.png");
+                        EnemyObject.GetComponent<Animator>().Play("SlimeGreenIdle", 0);
                         break;
                     case 3:
-                        Resources.Load<Sprite>("Sprite Sheet - Green Idle.png");
+                        EnemyObject.GetComponent<Animator>().Play("SlimeRedIdle", 0);
                         break;
                 }
+                EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.5f, 6f);
                 this.enemy = new Slime();
                 break;
         }

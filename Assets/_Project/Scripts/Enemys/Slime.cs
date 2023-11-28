@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
+    public Slime()
+    {
+        hp = RandomNum(4, 7);
+        maxHp = hp;
+        def = RandomNum(2, 4);
+        atk = RandomNum(2, 5);
 
+    }
     void Attack()
     {
 
