@@ -10,13 +10,11 @@ public class GotsaSpeedUp : Spell
         manaCost = 3;
         castingTime = 1;
     }
-
     public override void OnPlay()
     {
         Debug.Log("GotsaSpeedUp Played");
         CombatInfo.Instance().controller.player.playerDeck.waitingSpells.Add(this);
     }
-
     public override void OnEffect()
     {
         castingTime--;

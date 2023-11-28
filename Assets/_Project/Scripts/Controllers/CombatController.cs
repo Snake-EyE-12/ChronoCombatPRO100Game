@@ -35,6 +35,7 @@ public class CombatController : MonoBehaviour
     public void endTurn()
     {
 
+        player.playerDeck.IncrementCasting();
     }
 
     public void playCard(Card card)
@@ -42,6 +43,7 @@ public class CombatController : MonoBehaviour
         if (card.manaCost < player.mana)
         {
             player.mana -= card.manaCost;
+            changeHealthBar();
             card.OnPlay();
         }
     }

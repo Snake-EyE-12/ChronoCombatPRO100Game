@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spell : Card
 {
-    public int castingTime;
+    public int castingTime = 2;
 
     public override void OnPlay() { }
 

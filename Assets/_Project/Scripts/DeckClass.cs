@@ -90,11 +90,20 @@ public class Deck
         foreach (Spell spell in waitingSpells)
         {
             spell.OnEffect();
-            if (spell.castingTime <= 0)
+
+            for(int i = 0; i < waitingSpells.Count;)
             {
-                discarded.Add(spell);
-                waitingSpells.Remove(spell);
+                if (spell.castingTime <= 0)
+                {
+                    discarded.Add(spell);
+                    waitingSpells.Remove(spell);
+                }
+                else
+                {
+                    i++;
+                }
             }
+            
         }
     }
 }

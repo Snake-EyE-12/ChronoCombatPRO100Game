@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Fireball : Spell
 {
-
     public Fireball()
     {
         manaCost = 3;
@@ -16,7 +15,6 @@ public class Fireball : Spell
         Debug.Log("Fireball Played");
         CombatInfo.Instance().player.playerDeck.waitingSpells.Add(this);
     }
-
     public override void OnEffect()
     {
         castingTime--;
