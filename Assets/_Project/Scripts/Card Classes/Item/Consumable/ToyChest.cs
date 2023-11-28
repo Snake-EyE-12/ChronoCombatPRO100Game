@@ -13,7 +13,6 @@ public class ToyChest : Consumable
     public override void OnPlay()
     {
         List<Card> cards = new List<Card>();
-        Deck deck = new Deck();
         foreach (Card card in CardDatabase.Instance().cardList)
         {
             if (card.manaCost <= 3)

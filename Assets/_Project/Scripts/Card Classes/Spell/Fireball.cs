@@ -9,17 +9,20 @@ public class Fireball : Spell
     public Fireball()
     {
         manaCost = 3;
+        castingTime = 1;
     }
     public override void OnPlay()
     {
         Debug.Log("Fireball Played");
-        CombatInfo.Instance().controller.DealDamageToPlayer(15);
+        CombatInfo.Instance().player.playerDeck.waitingSpells.Add(this);
+    }
 
-        if (castingTime == 0)
+    public override void OnEffect()
+    {
+        castingTime--;
+        if (castingTime <= 0)
         {
             CombatInfo.Instance().controller.DealDamageToEnemy(15);
         }
-        castingTime--;
-
     }
 }
