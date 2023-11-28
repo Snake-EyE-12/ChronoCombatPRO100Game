@@ -8,7 +8,7 @@ public class Slime : Enemy
     void Attack()
     {
 
-        int num = RandomMove(1, 4);
+        int num = RandomNum(1, 4);
         int dmg = 0;
         switch (num)
         {
