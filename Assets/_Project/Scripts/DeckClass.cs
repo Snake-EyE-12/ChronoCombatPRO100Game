@@ -6,13 +6,13 @@ using UnityEngine;
 public class Deck
 {
     public List<Card> deck = new List<Card>();
-    List<Card> discarded = new List<Card>();
+    public List<Spell> waitingSpells = new List<Spell>();
+    public List<Card> discarded = new List<Card>();
     public List<Card> currentHand = new List<Card>();
-    int discradSize = 0;
+    public int discradSize = 0;
 
     void Discarded(int i)
     {
-
         //maybe right
         //deck[i].discraded = true;
 
@@ -48,10 +48,8 @@ public class Deck
 
     public void Draw()
     {
-
         currentHand.Add(deck[0]);
         deck.RemoveAt(0);
-
     }
 
     
@@ -59,7 +57,6 @@ public class Deck
     public void AddCardDeck(Card card)
     {
         deck.Add(card);
-        //talk with team
     }
 
     public void AddCardHand(Card card)
@@ -86,19 +83,27 @@ public class Deck
     {
         discarded.Add(currentHand[i]);
         currentHand.RemoveAt(0);
-
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void IncrementCasting()
     {
+        foreach (Spell spell in waitingSpells)
+        {
+            spell.OnEffect();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+            for(int i = 0; i < waitingSpells.Count;)
+            {
+                if (spell.castingTime <= 0)
+                {
+                    discarded.Add(spell);
+                    waitingSpells.Remove(spell);
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            
+        }
     }
 }

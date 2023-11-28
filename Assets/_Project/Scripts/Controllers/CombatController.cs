@@ -4,9 +4,8 @@ using Guymon.DesignPatterns;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CombatController : MonoBehaviour   
+public class CombatController : MonoBehaviour
 {
-
     public Player player;
     public GameObject EnemyObject;
     public Enemy enemy;
@@ -27,13 +26,19 @@ public class CombatController : MonoBehaviour
             player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
             addedCards = true;
         }
-        
         CombatInfo.Instance().controller = this;
         player.SettingStartHand();
     }
-    public void DealDamageToPlayer(int damage) {
+    public void DealDamageToPlayer(int damage)
+    {
         ChangePlayerHealth(-damage);
         changeHealthBar();
+    }
+
+    public void endTurn()
+    {
+
+        player.playerDeck.IncrementCasting();
     }
 
     public void playCard(Card card)
@@ -41,6 +46,7 @@ public class CombatController : MonoBehaviour
         if (card.manaCost < player.mana)
         {
             player.mana -= card.manaCost;
+            changeHealthBar();
             card.OnPlay();
         }
     }
@@ -59,8 +65,6 @@ public class CombatController : MonoBehaviour
     public void Start()
     {
         changeHealthBar();
-
-        
     }
 
     public void enemyDie()

@@ -13,12 +13,7 @@ public class Player
     public int mana = 0;
     public int turn = 0;
 
-
-
-
     public Deck playerDeck = new Deck();
-
-
 
     //items
 
@@ -35,11 +30,4 @@ public class Player
     void PickCard(int i)
     {
     }
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-
-
-
 }
