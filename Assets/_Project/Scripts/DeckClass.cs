@@ -91,19 +91,19 @@ public class Deck
         {
             spell.OnEffect();
 
+            
+        }
             for(int i = 0; i < waitingSpells.Count;)
             {
-                if (spell.castingTime <= 0)
+                if (waitingSpells[i].castingTime <= 0)
                 {
-                    discarded.Add(spell);
-                    waitingSpells.Remove(spell);
+                    discarded.Add(waitingSpells[i]);
+                    waitingSpells.Remove(waitingSpells[i]);
                 }
                 else
                 {
                     i++;
                 }
             }
-            
-        }
     }
 }

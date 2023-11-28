@@ -48,6 +48,9 @@ public class CombatController : MonoBehaviour
             player.mana -= card.manaCost;
             changeHealthBar();
             card.OnPlay();
+            Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
+            player.playerDeck.DiscardCard(player.playerDeck.currentHand.IndexOf(card));
+            Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
         }
     }
     public void DealDamageToEnemy(int damage)
