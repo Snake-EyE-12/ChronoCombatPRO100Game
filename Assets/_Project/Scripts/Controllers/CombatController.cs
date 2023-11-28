@@ -34,22 +34,24 @@ public class CombatController : MonoBehaviour
 
     private void SetEnemy() {
 
-        int rando = Random.Range(1, 2);
+        int rando = Random.Range(1,2);
 
         switch (rando)
         {
             case 1:
                 this.enemy = new goblin();
-                EnemyObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("goblinIdle.png");
+                EnemyObject.GetComponent<Animator>().Play("goblinIdle", 0);
+                EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.15f, 6f);
 
                 break;
             case 2:
                 //switch case for random slime color
-                int slimeRandomColor = Random.Range(1, 2);
+                int slimeRandomColor = Random.Range(1, 4);
                 switch (slimeRandomColor)
                 {
                     case 1:
-                        Resources.Load<Sprite>("Sprite Sheet - Blue Idle.png");
+                        EnemyObject.GetComponent<Animator>().Play("SlimeBlueIdle", 0);
+                        EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.5f, 6f);
                         break;
                     case 2:
                         Resources.Load<Sprite>("Sprite Sheet - Red Idle.png");
