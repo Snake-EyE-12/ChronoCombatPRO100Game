@@ -40,7 +40,8 @@ public class CombatController : MonoBehaviour
         {
             case 1:
                 this.enemy = new goblin();
-                Resources.Load<Sprite>("goblin idle.png");
+                EnemyObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("goblinIdle.png");
+
                 break;
             case 2:
                 //switch case for random slime color
