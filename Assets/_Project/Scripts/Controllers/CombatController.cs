@@ -17,20 +17,52 @@ public class CombatController : MonoBehaviour
     {
         CombatInfo.Instance().setCombatInfor();
         player = CombatInfo.Instance().player;
-        enemy = CombatInfo.Instance().enemy;
+        //enemy = CombatInfo.Instance().enemy;
         //change enemy to random here
+        SetEnemy();
         if(!addedCards) {
-            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
             addedCards = true;
         }
         CombatInfo.Instance().controller = this;
         player.SettingStartHand();
     }
-    public void DealDamageToPlayer(int damage)
-    {
+
+
+    private void SetEnemy() {
+
+        int rando = Random.Range(1, 2);
+
+        switch (rando)
+        {
+            case 1:
+                this.enemy = new goblin();
+                Resources.Load<Sprite>("goblin idle.png");
+                break;
+            case 2:
+                //switch case for random slime color
+                int slimeRandomColor = Random.Range(1, 2);
+                switch (slimeRandomColor)
+                {
+                    case 1:
+                        Resources.Load<Sprite>("Sprite Sheet - Blue Idle.png");
+                        break;
+                    case 2:
+                        Resources.Load<Sprite>("Sprite Sheet - Red Idle.png");
+                        break;
+                    case 3:
+                        Resources.Load<Sprite>("Sprite Sheet - Green Idle.png");
+                        break;
+                }
+                this.enemy = new Slime();
+                break;
+        }
+
+    }
+    public void DealDamageToPlayer(int damage) {
         ChangePlayerHealth(-damage);
         changeHealthBar();
     }
