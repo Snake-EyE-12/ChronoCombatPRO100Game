@@ -31,6 +31,11 @@ public class CombatController : MonoBehaviour
         changeHealthBar();
     }
 
+    public void endTurn()
+    {
+
+    }
+
     public void playCard(Card card)
     {
         if (card.manaCost < player.mana)
