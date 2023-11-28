@@ -54,9 +54,9 @@ public class Deck
 
     }
 
+    
 
-
-    void AddCardDeck(Card card)
+    public void AddCardDeck(Card card)
     {
         deck.Add(card);
         //talk with team

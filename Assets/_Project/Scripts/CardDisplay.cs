@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
@@ -8,12 +9,10 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] private Card card;
     [SerializeField] private Image cardSprite;
     public void CollectCard() {
-        //Find Player
-        //Add this card to player
-        //Player.AddCard(card)
+        CombatInfo.Instance().player.playerDeck.AddCardDeck(card);
+        SceneManager.LoadScene("Map");
     }
     private void Update() {
-        Debug.Log(card);
         if(card != null) cardSprite.sprite = card.sprite;
     }
     public void Play() {
@@ -24,6 +23,6 @@ public class CardDisplay : MonoBehaviour
         this.card = card;
     }
     public void RemoveSimilarCard() {
-        
+        SceneManager.LoadScene("Menu");
     }
 }
