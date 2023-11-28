@@ -17,7 +17,7 @@ public class CardDisplay : MonoBehaviour
         if(card != null) cardSprite.sprite = card.sprite;
     }
     public void Play() {
-        CombatInfo.Instance().controller.playCard(card);
+        CombatInfo.Instance().controller.player.playerDeck.playCard(card);
     }
     public void SetCard(Card card) {
         Debug.Log("Current Card: " + card);

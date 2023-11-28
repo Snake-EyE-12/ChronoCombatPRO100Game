@@ -33,7 +33,7 @@ public class Enemy
 
 
 
-    protected int RandomMove(int min, int max)
+    protected int RandomNum(int min, int max)
     {
 
         int num = Random.Range(min, max);
