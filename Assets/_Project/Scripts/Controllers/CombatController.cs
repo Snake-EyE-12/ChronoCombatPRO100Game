@@ -12,22 +12,60 @@ public class CombatController : MonoBehaviour
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
-
+    static bool addedCards = false;
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
         player = CombatInfo.Instance().player;
-        enemy = CombatInfo.Instance().enemy;
+        //enemy = CombatInfo.Instance().enemy;
         //change enemy to random here
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-        player.playerDeck.deck.Add(CardDatabase.Instance().powerWordKill);
-        player.playerDeck.deck.Add(CardDatabase.Instance().toyChest);
+        SetEnemy();
+        if(!addedCards) {
         player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            addedCards = true;
+        }
         CombatInfo.Instance().controller = this;
         player.SettingStartHand();
     }
-    public void DealDamageToPlayer(int damage)
-    {
+
+
+    private void SetEnemy() {
+
+        int rando = Random.Range(1,3);
+
+        switch (rando)
+        {
+            case 1:
+                this.enemy = new goblin();
+                EnemyObject.GetComponent<Animator>().Play("goblinIdle", 0);
+                EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.15f, 6f);
+
+                break;
+            case 2:
+                //switch case for random slime color
+                int slimeRandomColor = Random.Range(1, 4);
+                switch (slimeRandomColor)
+                {
+                    case 1:
+                        EnemyObject.GetComponent<Animator>().Play("SlimeBlueIdle", 0);
+                        break;
+                    case 2:
+                        EnemyObject.GetComponent<Animator>().Play("SlimeGreenIdle", 0);
+                        break;
+                    case 3:
+                        EnemyObject.GetComponent<Animator>().Play("SlimeRedIdle", 0);
+                        break;
+                }
+                EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.5f, 6f);
+                this.enemy = new Slime();
+                break;
+        }
+
+    }
+    public void DealDamageToPlayer(int damage) {
         ChangePlayerHealth(-damage);
         changeHealthBar();
     }
@@ -45,6 +83,9 @@ public class CombatController : MonoBehaviour
             player.mana -= card.manaCost;
             changeHealthBar();
             card.OnPlay();
+            Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
+            player.playerDeck.DiscardCard(player.playerDeck.currentHand.IndexOf(card));
+            Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
         }
     }
     public void DealDamageToEnemy(int damage)

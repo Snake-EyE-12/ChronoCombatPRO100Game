@@ -19,7 +19,8 @@ public class Enemy
     }
 
     #region methods_for_things
-    protected int RandomMove(int min, int max)
+
+    protected int RandomNum(int min, int max)
     {
         int num = Random.Range(min, max);
 

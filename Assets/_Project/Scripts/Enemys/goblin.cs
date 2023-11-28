@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class goblin : Enemy
 {
+    public goblin()
+    {
+        hp = RandomNum(9,13);
+        maxHp = hp;
+        def = RandomNum(2, 4);
+        atk = RandomNum(3, 6);
 
+    //     public int hp = 0;
+    //public int def = 0;
+    //public int atk = 0;
+
+}
     void Attack()
     {
 
-        int num = RandomMove(1, 4);
+        int num = RandomNum(1, 4);
         int dmg = 0;
         switch (num)
         {
@@ -33,31 +44,32 @@ public class goblin : Enemy
     }
 
     #region movesList
-    #region movesList
     int Atk1()
     {
         moveName = "kick";
-        return 5;
+        return atk;
     }
     int Atk2()
     {
         moveName = "punch";
-        return 10;
+        return atk + 1 ;
     }
     int Atk3()
     {
         moveName = "rizz";
-        return 15;
+        return atk * 0;
     }
     int Atk4()
     {
         //have the name of the move to talk to the controler to display
         moveName = "Hehe";
-        return 69;
+        return atk * 2;
 
     }
     #endregion
-    #endregion
+
+
+    
     // Start is called before the first frame update
     void Start()
     {

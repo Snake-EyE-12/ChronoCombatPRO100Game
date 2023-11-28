@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7563923832290703343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -127,10 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65ef99ab8ee1e74e97896177e89c249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card:
-    mana: 3
-    type: IDK
-    sprite: {fileID: 21300000, guid: f229559511a0da6438ce820a73c04edc, type: 3}
   cardSprite: {fileID: 7563923831326022170}
 --- !u!114 &7563923832290703336
 MonoBehaviour:
