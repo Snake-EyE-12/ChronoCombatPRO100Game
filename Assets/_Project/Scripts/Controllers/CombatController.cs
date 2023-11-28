@@ -83,6 +83,7 @@ public class CombatController : MonoBehaviour
         }
         player.playerDeck.IncrementCasting();
         player.playerDeck.Draw();
+        changeHealthBar();
     }
 
     public void playCard(Card card)
