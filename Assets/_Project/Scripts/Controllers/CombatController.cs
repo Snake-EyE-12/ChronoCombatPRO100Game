@@ -4,15 +4,15 @@ using Guymon.DesignPatterns;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CombatController : MonoBehaviour   
+public class CombatController : MonoBehaviour
 {
-
     public Player player;
     public GameObject EnemyObject;
     public Enemy enemy;
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
+    static bool addedCards = false;
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
@@ -20,10 +20,13 @@ public class CombatController : MonoBehaviour
         //enemy = CombatInfo.Instance().enemy;
         //change enemy to random here
         SetEnemy();
+        if(!addedCards) {
         player.playerDeck.deck.Add(CardDatabase.Instance().strike);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            addedCards = true;
+        }
         CombatInfo.Instance().controller = this;
         player.SettingStartHand();
     }
@@ -67,6 +70,7 @@ public class CombatController : MonoBehaviour
     public void endTurn()
     {
 
+        player.playerDeck.IncrementCasting();
     }
 
     public void playCard(Card card)
@@ -74,7 +78,11 @@ public class CombatController : MonoBehaviour
         if (card.manaCost < player.mana)
         {
             player.mana -= card.manaCost;
+            changeHealthBar();
             card.OnPlay();
+            Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
+            player.playerDeck.DiscardCard(player.playerDeck.currentHand.IndexOf(card));
+            Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
         }
     }
     public void DealDamageToEnemy(int damage)
@@ -92,8 +100,6 @@ public class CombatController : MonoBehaviour
     public void Start()
     {
         changeHealthBar();
-
-        
     }
 
     public void enemyDie()

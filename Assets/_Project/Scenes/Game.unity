@@ -2105,7 +2105,7 @@ MonoBehaviour:
     manaCost: 3
     type: 
     temp: 0
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: a00921a615f81d84c8e0d71019b9a9bb, type: 3}
     slot: 3
   fireball:
     manaCost: 3
@@ -2117,14 +2117,14 @@ MonoBehaviour:
     manaCost: 3
     type: 
     temp: 0
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 3e697f0870de9c64b9876e61f32d75e9, type: 3}
     castingTime: 0
   powerWordKill:
     manaCost: 6
     type: 
     temp: 0
-    sprite: {fileID: 0}
-    castingTime: 0
+    sprite: {fileID: 21300000, guid: 0d9cd0eadfd63c341b57522ba539769d, type: 3}
+    castingTime: 3
   battleMech:
     manaCost: 0
     type: 
@@ -2869,6 +2869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 7563923832290703340, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2935,11 +2939,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 582
+      value: 584
       objectReference: {fileID: 0}
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -114.7608
+      value: -156
       objectReference: {fileID: 0}
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

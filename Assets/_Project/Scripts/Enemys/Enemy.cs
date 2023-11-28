@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Enemy
 {
-
-
-
     public string enemyName;
     public string moveName;
-    //Type???? 
-
 
     //basic stats
     public int maxHp = 0;
@@ -20,22 +15,12 @@ public class Enemy
 
     public void Attack()
     {
-        //
         CombatInfo.Instance().controller.DealDamageToPlayer(69);
     }
 
-
-
-
-
-
     #region methods_for_things
-
-
-
-    protected int RandomNum(int min, int max)
+    protected int RandomMove(int min, int max)
     {
-
         int num = Random.Range(min, max);
 
         return num;
