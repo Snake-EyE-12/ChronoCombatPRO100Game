@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -9,12 +10,14 @@ public class HandDisplay : MonoBehaviour
     public int handSize;
     public IPanel handContainer;
     List<GameObject> cards;
+    List<GameObject> madeCards;
     int xpos;
     public GameObject cardPrefab;
     // Start is called before the first frame update
     void Start()
     {
         cards = new List<GameObject>();
+        madeCards = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -27,10 +30,14 @@ public class HandDisplay : MonoBehaviour
         {
             Debug.Log("Hand Display Start");
             xpos = Screen.width / 20;
+
             for (int j = 0; j < CombatInfo.Instance().controller.player.playerDeck.currentHand.Count; j++)
-            {
-                if (cards.Count > j) { 
-                cards[j] = cardPrefab;
+               {
+                if (cards.Count > j)
+                {
+                    madeCards[j].SetActive(false);
+                    madeCards.RemoveAt(j);
+                    cards[j] = cardPrefab;
                 } else
                 {
                     cards.Add(cardPrefab);
@@ -40,10 +47,12 @@ public class HandDisplay : MonoBehaviour
             handSize = CombatInfo.Instance().controller.player.playerDeck.currentHand.Count;
             for (int i = 0; i < handSize; i++)
             {
-                //(Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity) as GameObject).transform.parent = gameObject.transform;
-                CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
+                madeCards.Add((Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform)));
+                madeCards[i].SetActive(true);
+                //madeCards[i].transform.parent = gameObject.transform;
+                //CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
                 Debug.Log(CombatInfo.Instance().controller.player.playerDeck.currentHand[i]);
-                cd.SetCard(CombatInfo.Instance().controller.player.playerDeck.currentHand[i]);
+                madeCards[i].GetComponent<CardDisplay>().SetCard(CombatInfo.Instance().controller.player.playerDeck.currentHand[i]);
                 xpos += Screen.width / 10;
                 ///Test
             }

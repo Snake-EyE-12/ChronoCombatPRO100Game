@@ -13,7 +13,7 @@ public class CardDisplay : MonoBehaviour
         //Player.AddCard(card)
     }
     private void Update() {
-        Debug.Log(card);
+        //Debug.Log(card);
         if(card != null) cardSprite.sprite = card.sprite;
     }
     public void Play() {
