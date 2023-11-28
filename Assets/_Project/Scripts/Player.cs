@@ -2,27 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player
+public class Player : MonoBehaviour
 {
+    //Contoller
+    //deck class 1. vecotr list 2. methods to cbontroller the class 
+    //
 
 
     string cardName;
-    public int hp = 0;
-    public int maxHp = 0;
-    public int maxMana = 0;
-    public int mana = 0;
-    public int turn = 0;
+    public int hp;
+    public int maxHp;
+    public int maxMana;
+    public int mana;
+    public int turn;
+
+    [SerializeField] private ProgressBar healthBar;
+    [SerializeField] private SceneLoader sceneLoader;
 
 
+    //card stuff 
+    [HideInInspector] public Deck playerDeck = new Deck();
 
-
-    public Deck playerDeck = new Deck();
-
-
+    private void Awake()
+    {
+        playerDeck.deck.Add(CardDatabase.Instance().strike);
+        playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        Debug.Log("Cards Added");
+        SettingCurrentHand();
+    }
 
     //items
 
-    public void SettingStartHand()
+    void SettingCurrentHand()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -39,7 +52,21 @@ public class Player
 
 
     // Update is called once per frame
+    void Update()
+    {
 
-
-
+    }
+    public void ChangeHealth(int amount)
+    {
+        hp += amount;
+        healthBar.slider.value = hp;
+        if (hp <= 0)
+        {
+            die();
+        }
+    }
+    private void die()
+    {
+        sceneLoader.LoadScene();
+    }
 }

@@ -14,7 +14,7 @@ public abstract class Card
     {
 
     }
-
+    
     public int Cost()
     {
         return manaCost;
