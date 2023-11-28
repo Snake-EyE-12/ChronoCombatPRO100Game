@@ -8,24 +8,18 @@ public class PowerWordKill : Spell
     public PowerWordKill()
     {
         manaCost = 6;
+        castingTime = 3;
     }
 
     public override void OnPlay()
     {
-        /*
-        if (castingTime == 0)
-        {
-            if (Enemy.type == "boss")
-            {
-                CombatController.Instance().DealDamageToEnemy(50);
-            }
-            else
-            {
-                CombatController.Instance().DealDamageToEnemy(999);
-            }
-            return;
-        }
+        Debug.Log("PowerWordKill Played");
+        CombatInfo.Instance().player.playerDeck.waitingSpells.Add(this);
+    }
+
+    public override void OnEffect()
+    {
         castingTime--;
-        */
+        if (castingTime == 0) CombatInfo.Instance().controller.DealDamageToEnemy(50);
     }
 }

@@ -4,29 +4,30 @@ using Guymon.DesignPatterns;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CombatController : MonoBehaviour   
+public class CombatController : MonoBehaviour
 {
-
     public Player player;
     public GameObject EnemyObject;
     public Enemy enemy;
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
+
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
         player = CombatInfo.Instance().player;
         enemy = CombatInfo.Instance().enemy;
         //change enemy to random here
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().powerWordKill);
+        player.playerDeck.deck.Add(CardDatabase.Instance().toyChest);
         player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
         CombatInfo.Instance().controller = this;
         player.SettingStartHand();
     }
-    public void DealDamageToPlayer(int damage) {
+    public void DealDamageToPlayer(int damage)
+    {
         ChangePlayerHealth(-damage);
         changeHealthBar();
     }
@@ -54,8 +55,6 @@ public class CombatController : MonoBehaviour
     public void Start()
     {
         changeHealthBar();
-
-        
     }
 
     public void enemyDie()
