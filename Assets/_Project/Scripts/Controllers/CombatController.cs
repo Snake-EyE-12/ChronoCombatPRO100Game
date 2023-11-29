@@ -86,7 +86,7 @@ public class CombatController : MonoBehaviour
         changeHealthBar();
     }
 
-    public void playCard(Card card)
+    public void playCard(Card card, int index)
     {
         if (card.manaCost <= player.mana)
         {
@@ -94,7 +94,7 @@ public class CombatController : MonoBehaviour
             changeHealthBar();
             card.OnPlay();
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
-            player.playerDeck.DiscardCard(player.playerDeck.currentHand.IndexOf(card));
+            player.playerDeck.DiscardCard(index);
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
         }
     }

@@ -29,7 +29,7 @@ public class HandDisplay : MonoBehaviour
         if (CombatInfo.Instance().controller.player.playerDeck != null && CombatInfo.Instance().controller.player.playerDeck.currentHand != null && CombatInfo.Instance().controller.player.playerDeck.currentHand.Count != handSize)
         {
             Debug.Log("Hand Display Start");
-            xpos = Screen.width / 20;
+            xpos = Screen.width / 15;
 
             for (int j = 0; j < CombatInfo.Instance().controller.player.playerDeck.currentHand.Count; j++)
                {
@@ -58,13 +58,13 @@ public class HandDisplay : MonoBehaviour
             handSize = CombatInfo.Instance().controller.player.playerDeck.currentHand.Count;
             for (int i = 0; i < handSize; i++)
             {
-                madeCards.Add((Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform)));
+                madeCards.Add((Instantiate(cards[i], new Vector3(xpos, 160, 0), Quaternion.identity, gameObject.transform)));
                 madeCards[i].SetActive(true);
                 //madeCards[i].transform.parent = gameObject.transform;
                 //CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
                 Debug.Log(CombatInfo.Instance().controller.player.playerDeck.currentHand[i]);
-                madeCards[i].GetComponent<CardDisplay>().SetCard(CombatInfo.Instance().controller.player.playerDeck.currentHand[i]);
-                xpos += Screen.width / 10;
+                madeCards[i].GetComponent<CardDisplay>().SetCard(CombatInfo.Instance().controller.player.playerDeck.currentHand[i], i);
+                xpos += Screen.width / 7;
                 ///Test
             }
         }
