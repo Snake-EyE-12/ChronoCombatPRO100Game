@@ -92,6 +92,10 @@ public class CombatController : MonoBehaviour
 
     public void endTurn()
     {
+        if (EffectController.gotsaSpeedUp) EffectController.gotsaSpeedUp = false;
+        if (EffectController.battleMech) DealDamageToEnemy(3);
+        enemyDie();
+
         turnCount++;
         turn++;
 
@@ -110,8 +114,6 @@ public class CombatController : MonoBehaviour
             player.mana = 12;
         }
 
-        if (EffectController.gotsaSpeedUp) EffectController.gotsaSpeedUp = false;
-        if (EffectController.battleMech) DealDamageToEnemy(3);
         player.playerDeck.IncrementCasting();
         player.playerDeck.Draw();
         changeHealthBar();
@@ -173,10 +175,9 @@ public class CombatController : MonoBehaviour
 
     public void enemyDie()
     {
-        EffectController.battleMech = false;
-
         if (enemy.hp <= 0)
         {
+            EffectController.battleMech = false;
             player.playerDeck.Shovel();
             SceneManager.LoadScene("CardPicker");
         }
