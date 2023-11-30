@@ -20,6 +20,7 @@ public class EffectController : Singleton<EffectController>
     public static bool battleMech = false;
     public static bool enemyStunned = false;
     public static bool reflect = false;
+ 
 
     // Modifiers
     public static int manaModifier = 0;

@@ -12,4 +12,9 @@ public class CardPicker : MonoBehaviour
             display.SetCard(CardDatabase.Instance().cardList[Random.Range(0, CardDatabase.Instance().cardList.Count - 1)]);
         }
     }
+
+    public void submit()
+    {
+        SceneManager.LoadScene("Map");
+    }
 }
