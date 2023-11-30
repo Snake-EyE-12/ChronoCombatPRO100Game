@@ -12,6 +12,7 @@ public class CombatController : MonoBehaviour
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
+    private int turnCount;
     static bool addedCards = false;
     private int turn = 1;
     private void Awake()
@@ -80,6 +81,9 @@ public class CombatController : MonoBehaviour
 
     public void endTurn()
     {
+        turnCount++;
+
+        enemy.Attack();
             turn++;
         if (turn < 12)
         {

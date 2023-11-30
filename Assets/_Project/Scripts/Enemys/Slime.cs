@@ -12,7 +12,8 @@ public class Slime : Enemy
         atk = RandomNum(2, 5);
 
     }
-    void Attack()
+    
+    public void Attack()
     {
 
         int num = RandomNum(1, 4);
