@@ -15,12 +15,7 @@ public class CombatController : MonoBehaviour
     static bool addedCards = false;
 
     // Card Effect Crap
-    public static bool battleMech = false;
-    public static bool gotsaSpeedUp = false;
-    public static bool reflect = false;
 
-    public static int manaModifier = 0;
-    public static int armorValue = 0;
 
     private void Awake()
     {
@@ -77,10 +72,10 @@ public class CombatController : MonoBehaviour
     }
     public void DealDamageToPlayer(int damage)
     {
-        if (reflect)
+        if (EffectController.reflect)
         {
             DealDamageToEnemy(damage);
-            reflect = false;
+            EffectController.reflect = false;
         }
         else
         {
@@ -94,20 +89,20 @@ public class CombatController : MonoBehaviour
 
         player.playerDeck.IncrementCasting();
 
-        if (gotsaSpeedUp)
+        if (EffectController.gotsaSpeedUp)
         {
-            gotsaSpeedUp = false;
-            manaModifier--;
+            EffectController.gotsaSpeedUp = false;
+            EffectController.manaModifier--;
         }
 
-        if (battleMech) DealDamageToEnemy(3);
+        if (EffectController.battleMech) DealDamageToEnemy(3);
     }
 
     public void playCard(Card card)
     {
-        if (card.manaCost - manaModifier < player.mana)
+        if (card.manaCost - EffectController.manaModifier < player.mana)
         {
-            player.mana -= (card.manaCost - manaModifier);
+            player.mana -= (card.manaCost - EffectController.manaModifier);
             changeHealthBar();
             card.OnPlay();
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
@@ -139,7 +134,7 @@ public class CombatController : MonoBehaviour
             player.playerDeck.Shovel();
             SceneManager.LoadScene("CardPicker");
         }
-        battleMech = false;
+        EffectController.battleMech = false;
     }
     public void ChangePlayerHealth(int amount)
     {

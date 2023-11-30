@@ -11,6 +11,6 @@ public class BattleMech : Action
     }
     public override void OnPlay()
     {
-        CombatController.battleMech = true;
+        EffectController.battleMech = true;
     }
 }

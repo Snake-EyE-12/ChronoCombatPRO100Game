@@ -6,21 +6,23 @@ using UnityEngine;
 public class EffectController : Singleton<EffectController>
 {
     // Hats
-    public bool wizardHat = false;
+    public static bool wizardHat = false;
 
     // Weapons
-    public bool wizardStaff = false;
-    public bool plasmaSpear = false;
-    public bool ominousRing = false;
+    public static bool wizardStaff = false;
+    public static bool plasmaSpear = false;
+    public static bool ominousRing = false;
 
     // Armor
 
 
     // Cards
-    public bool gotsaSpeedUp = false;
-    public bool enemyStunned = false;
-    public bool reflect = false;
+    public static bool battleMech = false;
+    public static bool gotsaSpeedUp = false;
+    public static bool enemyStunned = false;
+    public static bool reflect = false;
 
     // Modifiers
-    
+    public static int armorValue = 0;
+    public static int manaModifier = 0;
 }

@@ -23,8 +23,8 @@ public class GotsaSpeedUp : Spell
             CombatInfo.Instance().controller.player.playerDeck.Draw();
             CombatInfo.Instance().controller.player.playerDeck.Draw();
 
-            CombatController.manaModifier++;
-            CombatController.gotsaSpeedUp = true;
+            EffectController.manaModifier++;
+            EffectController.gotsaSpeedUp = true;
         }
     }
 }
