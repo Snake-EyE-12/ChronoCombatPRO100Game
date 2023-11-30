@@ -12,9 +12,16 @@ public class CombatController : MonoBehaviour
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
-    private int turnCount;
     static bool addedCards = false;
-    private int turn = 1;
+
+    // Card Effect Crap
+    public static bool battleMech = false;
+    public static bool gotsaSpeedUp = false;
+    public static bool reflect = false;
+
+    public static int manaModifier = 0;
+    public static int armorValue = 0;
+
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
@@ -22,18 +29,12 @@ public class CombatController : MonoBehaviour
         //enemy = CombatInfo.Instance().enemy;
         //change enemy to random here
         SetEnemy();
-        if(!addedCards) {
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-            player.playerDeck.deck.Add(CardDatabase.Instance().wizardHat);
-            player.playerDeck.Shovel();
+        if (!addedCards)
+        {
+            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
             addedCards = true;
         }
         CombatInfo.Instance().controller = this;
@@ -41,9 +42,10 @@ public class CombatController : MonoBehaviour
     }
 
 
-    private void SetEnemy() {
+    private void SetEnemy()
+    {
 
-        int rando = Random.Range(1,3);
+        int rando = Random.Range(1, 3);
 
         switch (rando)
         {
@@ -73,38 +75,43 @@ public class CombatController : MonoBehaviour
         }
 
     }
-    public void DealDamageToPlayer(int damage) {
-        ChangePlayerHealth(-damage);
-        changeHealthBar();
+    public void DealDamageToPlayer(int damage)
+    {
+        if (reflect)
+        {
+            DealDamageToEnemy(damage);
+            reflect = false;
+        }
+        else
+        {
+            ChangePlayerHealth(-damage);
+            changeHealthBar();
+        }
     }
 
     public void endTurn()
     {
-        turnCount++;
 
-        enemy.Attack();
-            turn++;
-        if (turn < 12)
-        {
-            player.mana = turn;
-        } else
-        {
-            player.mana = 12;
-        }
         player.playerDeck.IncrementCasting();
-        player.playerDeck.Draw();
-        changeHealthBar();
+
+        if (gotsaSpeedUp)
+        {
+            gotsaSpeedUp = false;
+            manaModifier--;
+        }
+
+        if (battleMech) DealDamageToEnemy(3);
     }
 
-    public void playCard(Card card, int index)
+    public void playCard(Card card)
     {
-        if (card.manaCost <= player.mana)
+        if (card.manaCost - manaModifier < player.mana)
         {
-            player.mana -= card.manaCost;
+            player.mana -= (card.manaCost - manaModifier);
             changeHealthBar();
             card.OnPlay();
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
-            player.playerDeck.DiscardCard(index);
+            player.playerDeck.DiscardCard(player.playerDeck.currentHand.IndexOf(card));
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
         }
     }
@@ -132,6 +139,7 @@ public class CombatController : MonoBehaviour
             player.playerDeck.Shovel();
             SceneManager.LoadScene("CardPicker");
         }
+        battleMech = false;
     }
     public void ChangePlayerHealth(int amount)
     {
