@@ -2178,25 +2178,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wizardHat:
-    manaCost: 1
+    manaCost: 0
     type: 
     temp: 0
-    sprite: {fileID: 21300000, guid: f229559511a0da6438ce820a73c04edc, type: 3}
+    sprite: {fileID: 21300000, guid: bd648e3bd9d670d4291f866448e02d78, type: 3}
     slot: 2
   ominousRing:
     manaCost: 0
     type: 
     temp: 0
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 2f1198744426a194296e696ac55ea726, type: 3}
     slot: 2
   plasmaSpear:
     manaCost: 0
     type: 
     temp: 0
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: d2f87b1fa59f16748bf22a452759eca7, type: 3}
     slot: 2
   wizardStaff:
-    manaCost: 2
+    manaCost: 0
     type: 
     temp: 0
     sprite: {fileID: 21300000, guid: 11ae1df80b256f8459a9706afda101a3, type: 3}
@@ -2218,13 +2218,13 @@ MonoBehaviour:
     type: 
     temp: 0
     sprite: {fileID: 21300000, guid: ced46465d61fa374b8630274be43825e, type: 3}
-    castingTime: 0
+    castingTime: 1
   gotsSpeedUp:
     manaCost: 3
     type: 
     temp: 0
     sprite: {fileID: 21300000, guid: 3e697f0870de9c64b9876e61f32d75e9, type: 3}
-    castingTime: 0
+    castingTime: 1
   powerWordKill:
     manaCost: 6
     type: 
@@ -2232,20 +2232,20 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0d9cd0eadfd63c341b57522ba539769d, type: 3}
     castingTime: 3
   battleMech:
-    manaCost: 0
+    manaCost: 2
     type: 
     temp: 0
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 55edc7ef7b31a164e8d57ae5738ca908, type: 3}
   garson:
     manaCost: 4
     type: 
     temp: 0
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 987032e9863d7d0468e12296e565aeea, type: 3}
   pocketSand:
-    manaCost: 0
+    manaCost: 1
     type: 
     temp: 0
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 37f22d05a71cd82419f0dd0930028767, type: 3}
   strike:
     manaCost: 1
     type: 
@@ -3014,6 +3014,18 @@ PrefabInstance:
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7563923832290703343, guid: 745ec24f7ef8edd4ab06fd6dd8a47918, type: 3}
       propertyPath: m_LocalPosition.x

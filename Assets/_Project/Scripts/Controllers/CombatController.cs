@@ -12,7 +12,9 @@ public class CombatController : MonoBehaviour
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
+    private int turnCount;
     static bool addedCards = false;
+    private int turn = 1;
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
@@ -22,9 +24,16 @@ public class CombatController : MonoBehaviour
         SetEnemy();
         if(!addedCards) {
         player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            player.playerDeck.deck.Add(CardDatabase.Instance().wizardHat);
+            player.playerDeck.Shovel();
             addedCards = true;
         }
         CombatInfo.Instance().controller = this;
@@ -71,19 +80,31 @@ public class CombatController : MonoBehaviour
 
     public void endTurn()
     {
+        turnCount++;
 
+        enemy.Attack();
+            turn++;
+        if (turn < 12)
+        {
+            player.mana = turn;
+        } else
+        {
+            player.mana = 12;
+        }
         player.playerDeck.IncrementCasting();
+        player.playerDeck.Draw();
+        changeHealthBar();
     }
 
-    public void playCard(Card card)
+    public void playCard(Card card, int index)
     {
-        if (card.manaCost < player.mana)
+        if (card.manaCost <= player.mana)
         {
             player.mana -= card.manaCost;
             changeHealthBar();
             card.OnPlay();
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
-            player.playerDeck.DiscardCard(player.playerDeck.currentHand.IndexOf(card));
+            player.playerDeck.DiscardCard(index);
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
         }
     }
