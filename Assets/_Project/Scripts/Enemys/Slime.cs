@@ -13,7 +13,7 @@ public class Slime : Enemy
 
     }
     
-    public void Attack()
+    public override void Attack()
     {
 
         int num = RandomNum(1, 4);
