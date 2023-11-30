@@ -11,11 +11,11 @@ public class WizardRobe : Armor
 
     public override void OnEquip()
     {
-        EffectController.Instance().armorValue++;
+        EffectController.armorValue++;
     }
 
     public override void OnUnequipped()
     {
-        EffectController.Instance().armorValue--;
+        EffectController.armorValue--;
     }
 }

@@ -11,6 +11,6 @@ public class PocketSand : Action
     }
     public override void OnPlay()
     {
-        EffectController.Instance().enemyStunned = true;
+        EffectController.enemyStunned = true;
     }
 }
