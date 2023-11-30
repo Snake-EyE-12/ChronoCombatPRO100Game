@@ -12,8 +12,8 @@ public class CombatInfo : Singleton<CombatInfo>
 
     public void setCombatInfor()
     {
-        player.hp = 40;
-        player.maxHp = 40;
+        player.hp = 30;
+        player.maxHp = 30;
         player.mana = 1;
         player.maxMana = 12;
         enemy.hp = 40;

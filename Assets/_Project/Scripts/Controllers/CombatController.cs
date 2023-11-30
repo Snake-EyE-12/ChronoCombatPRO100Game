@@ -23,9 +23,16 @@ public class CombatController : MonoBehaviour
         SetEnemy();
         if(!addedCards) {
         player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().ominousRing);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
         player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            player.playerDeck.deck.Add(CardDatabase.Instance().wizardHat);
+            player.playerDeck.Shovel();
             addedCards = true;
         }
         CombatInfo.Instance().controller = this;
