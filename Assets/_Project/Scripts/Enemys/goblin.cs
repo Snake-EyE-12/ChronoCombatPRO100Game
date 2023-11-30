@@ -16,7 +16,7 @@ public class goblin : Enemy
     //public int atk = 0;
 
 }
-    void Attack()
+    public override void Attack()
     {
 
         int num = RandomNum(1, 4);
