@@ -12,11 +12,11 @@ public class PlasmaSpear : Weapon
 
     public override void OnEquip()
     {
-        EffectController.Instance().plasmaSpear = true;
+        EffectController.plasmaSpear = true;
     }
 
     public override void OnUnequipped()
     {
-        EffectController.Instance().plasmaSpear = false;
+        EffectController.plasmaSpear = false;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class OminousRing : Weapon
 {
-    // Spells may be cast immediately after being played. Doing so deals dmg equal to manaCost.
+    // Spells are cast immediately after being played. Deals dmg equal to manaCost.
 
     public override void OnPlay()
     {
@@ -14,11 +14,11 @@ public class OminousRing : Weapon
 
     public override void OnEquip()
     {
-        EffectController.Instance().ominousRing = true;
+        EffectController.ominousRing = true;
     }
 
     public override void OnUnequipped()
     {
-        EffectController.Instance().ominousRing = false;
+        EffectController.ominousRing = false;
     }
 }

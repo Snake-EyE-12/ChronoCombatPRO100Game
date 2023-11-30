@@ -13,15 +13,11 @@ public class WizardStaff : Weapon
 
     public override void OnEquip()
     {
-        // Decide which approach to take
-        EffectController.Instance().wizardStaff = true;
-        EffectController.Instance().castCost--;
+        EffectController.manaModifier++;
     }
 
     public override void OnUnequipped()
     {
-        // Same here
-        EffectController.Instance().wizardStaff = false;
-        EffectController.Instance().castCost++;
+        EffectController.manaModifier--;
     }
 }

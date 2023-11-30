@@ -34,13 +34,6 @@ public class Deck
         }
         currentHand = new List<Card>();
 
-        for (int i = 0; i < waitingSpells.Count; i++)
-        {
-            deck.Add(waitingSpells[i]);
-            waitingSpells.RemoveAt(i); 
-        }
-        waitingSpells = new List<Spell>();
-
         for (int i = 0; i < deck.Count; i++)
         {
             Card temp = deck[i];
@@ -55,15 +48,13 @@ public class Deck
 
     public void Draw()
     {
-        if (deck.Count != 0)
-        {
-            currentHand.Add(deck[0]);
-            deck.RemoveAt(0);
-        }
+        currentHand.Add(deck[0]);
+        deck.RemoveAt(0);
     }
 
 
-        public void AddCardDeck(Card card)
+
+    public void AddCardDeck(Card card)
     {
         deck.Add(card);
     }
@@ -91,17 +82,13 @@ public class Deck
     public void DiscardCard(int i)
     {
         discarded.Add(currentHand[i]);
-        currentHand.RemoveAt(i);
+        currentHand.RemoveAt(0);
     }
 
     public void IncrementCasting()
     {
-        foreach (Spell spell in waitingSpells)
-        {
-            spell.OnEffect();
+        foreach (Spell spell in waitingSpells) spell.OnEffect();
 
-
-        }
         for (int i = 0; i < waitingSpells.Count;)
         {
             if (waitingSpells[i].castingTime <= 0)
