@@ -33,8 +33,13 @@ public class CardDatabase : Singleton<CardDatabase>
 
     public List<Card> cardList = new List<Card>();
 
+    private void Start() {
+        PopulateCardList();
+    }
+
     public void PopulateCardList()
     {
+        cardList.Clear();
         // Items
         cardList.Add(healthPotion);
         cardList.Add(toyChest);

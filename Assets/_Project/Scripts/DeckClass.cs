@@ -6,13 +6,13 @@ using UnityEngine;
 public class Deck
 {
     public List<Card> deck = new List<Card>();
-    List<Card> discarded = new List<Card>();
+    public List<Spell> waitingSpells = new List<Spell>();
+    public List<Card> discarded = new List<Card>();
     public List<Card> currentHand = new List<Card>();
-    int discradSize = 0;
+    public int discradSize = 0;
 
     void Discarded(int i)
     {
-
         //maybe right
         //deck[i].discraded = true;
 
@@ -34,6 +34,13 @@ public class Deck
         }
         currentHand = new List<Card>();
 
+        for (int i = 0; i < waitingSpells.Count; i++)
+        {
+            deck.Add(waitingSpells[i]);
+            waitingSpells.RemoveAt(i); 
+        }
+        waitingSpells = new List<Spell>();
+
         for (int i = 0; i < deck.Count; i++)
         {
             Card temp = deck[i];
@@ -48,18 +55,18 @@ public class Deck
 
     public void Draw()
     {
-
-        currentHand.Add(deck[0]);
-        deck.RemoveAt(0);
-
+        if (deck.Count != 0)
+        {
+            currentHand.Add(deck[0]);
+            deck.RemoveAt(0);
+        }
     }
 
 
 
-    void AddCardDeck(Card card)
+        public void AddCardDeck(Card card)
     {
         deck.Add(card);
-        //talk with team
     }
 
     public void AddCardHand(Card card)
@@ -85,20 +92,28 @@ public class Deck
     public void DiscardCard(int i)
     {
         discarded.Add(currentHand[i]);
-        currentHand.RemoveAt(0);
-
+        currentHand.RemoveAt(i);
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void IncrementCasting()
     {
+        foreach (Spell spell in waitingSpells)
+        {
+            spell.OnEffect();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+            
+        }
+            for(int i = 0; i < waitingSpells.Count;)
+            {
+                if (waitingSpells[i].castingTime <= 0)
+                {
+                    discarded.Add(waitingSpells[i]);
+                    waitingSpells.Remove(waitingSpells[i]);
+                }
+                else
+                {
+                    i++;
+                }
+            }
     }
 }
