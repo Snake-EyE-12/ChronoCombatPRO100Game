@@ -13,6 +13,7 @@ public class CombatController : MonoBehaviour
     public ProgressBar playerHealth;
     public ProgressBar enemyHealth;
     public ProgressBar playerMana;
+    private int turnCount;
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
@@ -66,6 +67,9 @@ public class CombatController : MonoBehaviour
 
     public void endTurn()
     {
+        turnCount++;
+
+        enemy.Attack();
 
     }
 
@@ -93,7 +97,6 @@ public class CombatController : MonoBehaviour
     {
         changeHealthBar();
 
-        
     }
 
     public void enemyDie()
