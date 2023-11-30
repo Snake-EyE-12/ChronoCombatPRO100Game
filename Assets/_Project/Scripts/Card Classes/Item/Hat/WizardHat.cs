@@ -14,13 +14,13 @@ public class WizardHat : Hat
     }
     public override void OnEquip()
     {
-        EffectController.Instance().wizardHat = true;
-        CombatInfo.Instance().controller.DealDamageToEnemy(10);
+        EffectController.wizardHat = true;
+        
     }
 
     public override void OnUnequipped()
     {
-        EffectController.Instance().wizardHat = false;
-        CombatInfo.Instance().controller.DealDamageToPlayer(5);
+        EffectController.wizardHat = false;
+        
     }
 }

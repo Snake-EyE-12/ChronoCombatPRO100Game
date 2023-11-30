@@ -15,6 +15,7 @@ public class CombatController : MonoBehaviour
     private int turnCount;
     static bool addedCards = false;
     private int turn = 1;
+    private int wizardHatCount = 0;
     private void Awake()
     {
         CombatInfo.Instance().setCombatInfor();
@@ -22,16 +23,17 @@ public class CombatController : MonoBehaviour
         //enemy = CombatInfo.Instance().enemy;
         //change enemy to random here
         SetEnemy();
-        if(!addedCards) {
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().strike);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
-        player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+        if (!addedCards)
+        {
+            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+            player.playerDeck.deck.Add(CardDatabase.Instance().strike);
+            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
+            player.playerDeck.deck.Add(CardDatabase.Instance().fireball);
             player.playerDeck.deck.Add(CardDatabase.Instance().wizardHat);
             player.playerDeck.Shovel();
             addedCards = true;
@@ -41,9 +43,10 @@ public class CombatController : MonoBehaviour
     }
 
 
-    private void SetEnemy() {
+    private void SetEnemy()
+    {
 
-        int rando = Random.Range(1,3);
+        int rando = Random.Range(1, 3);
 
         switch (rando)
         {
@@ -73,24 +76,42 @@ public class CombatController : MonoBehaviour
         }
 
     }
-    public void DealDamageToPlayer(int damage) {
-        ChangePlayerHealth(-damage);
-        changeHealthBar();
+    public void DealDamageToPlayer(int damage)
+    {
+        if (EffectController.reflect)
+        {
+            DealDamageToEnemy(damage);
+            EffectController.reflect = false;
+        }
+        else
+        {
+            ChangePlayerHealth(-damage + EffectController.armorValue);
+            changeHealthBar();
+        }
     }
 
     public void endTurn()
     {
         turnCount++;
+        turn++;
 
-        enemy.Attack();
-            turn++;
+        if (!EffectController.enemyStunned)
+        {
+            enemy.Attack();
+        }
+        else EffectController.enemyStunned = false;
+
         if (turn < 12)
         {
             player.mana = turn;
-        } else
+        }
+        else
         {
             player.mana = 12;
         }
+
+        if (EffectController.gotsaSpeedUp) EffectController.gotsaSpeedUp = false;
+        if (EffectController.battleMech) DealDamageToEnemy(3);
         player.playerDeck.IncrementCasting();
         player.playerDeck.Draw();
         changeHealthBar();
@@ -98,11 +119,36 @@ public class CombatController : MonoBehaviour
 
     public void playCard(Card card, int index)
     {
-        if (card.manaCost <= player.mana)
+        if (card.manaCost - EffectController.manaModifier <= player.mana)
         {
-            player.mana -= card.manaCost;
+            player.mana -= card.manaCost - EffectController.manaModifier;
+
+            if (EffectController.plasmaSpear)
+            {
+                if (card.type == "action")
+                {
+                    DealDamageToEnemy(1);
+                }
+            }
+
+            if (EffectController.wizardHat && card.type == "spell") wizardHatCount++;
+            if (wizardHatCount == 3)
+            {
+                ((Spell)card).OnEffect();
+            }
+            else
+            {
+                if (EffectController.ominousRing && card.type == "spell")
+                {
+                    ((Spell)card).OnEffect();
+                    ChangePlayerHealth(-card.manaCost);
+                }
+                else
+                {
+                    card.OnPlay();
+                }
+            }
             changeHealthBar();
-            card.OnPlay();
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
             player.playerDeck.DiscardCard(index);
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
@@ -127,6 +173,8 @@ public class CombatController : MonoBehaviour
 
     public void enemyDie()
     {
+        EffectController.battleMech = false;
+
         if (enemy.hp <= 0)
         {
             player.playerDeck.Shovel();

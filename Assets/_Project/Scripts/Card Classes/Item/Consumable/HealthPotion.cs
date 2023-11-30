@@ -14,6 +14,5 @@ public class HealthPotion : Consumable
     public override void OnPlay()
     {
         CombatInfo.Instance().controller.ChangePlayerHealth(10);
-        //Deck.Remove();
     }
 }
