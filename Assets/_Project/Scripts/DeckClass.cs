@@ -63,7 +63,6 @@ public class Deck
     }
 
 
-
         public void AddCardDeck(Card card)
     {
         deck.Add(card);
@@ -101,19 +100,19 @@ public class Deck
         {
             spell.OnEffect();
 
-            
+
         }
-            for(int i = 0; i < waitingSpells.Count;)
+        for (int i = 0; i < waitingSpells.Count;)
+        {
+            if (waitingSpells[i].castingTime <= 0)
             {
-                if (waitingSpells[i].castingTime <= 0)
-                {
-                    discarded.Add(waitingSpells[i]);
-                    waitingSpells.Remove(waitingSpells[i]);
-                }
-                else
-                {
-                    i++;
-                }
+                discarded.Add(waitingSpells[i]);
+                waitingSpells.Remove(waitingSpells[i]);
             }
+            else
+            {
+                i++;
+            }
+        }
     }
 }
