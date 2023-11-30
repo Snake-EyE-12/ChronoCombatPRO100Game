@@ -42,7 +42,6 @@ public class CombatController : MonoBehaviour
                 this.enemy = new goblin();
                 EnemyObject.GetComponent<Animator>().Play("goblinIdle", 0);
                 EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.15f, 6f);
-
                 break;
             case 2:
                 //switch case for random slime color
