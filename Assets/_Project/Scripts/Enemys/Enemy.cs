@@ -13,7 +13,7 @@ public class Enemy
     public int def = 0;
     public int atk = 0;
 
-    public void Attack()
+    public virtual void Attack()
     {
         CombatInfo.Instance().controller.DealDamageToPlayer(69);
     }
