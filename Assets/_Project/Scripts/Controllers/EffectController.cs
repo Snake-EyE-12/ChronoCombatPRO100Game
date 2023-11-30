@@ -21,6 +21,7 @@ public class EffectController : Singleton<EffectController>
     public bool battleMech = false;
     public bool enemyStunned = false;
     public bool reflect = false;
+    public bool pocketSand = false;
 
     // Modifiers
     public int castCost = 0;
