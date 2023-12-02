@@ -15,12 +15,10 @@ public class WizardHat : Hat
     public override void OnEquip()
     {
         EffectController.wizardHat = true;
-        
     }
 
     public override void OnUnequipped()
     {
         EffectController.wizardHat = false;
-        
     }
 }
