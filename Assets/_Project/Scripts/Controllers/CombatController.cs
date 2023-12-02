@@ -48,31 +48,46 @@ public class CombatController : MonoBehaviour
 
         int rando = Random.Range(1, 3);
 
-        switch (rando)
+        if (MapManager.Instance().levelCount % 5 != 0)
         {
-            case 1:
-                this.enemy = new goblin();
-                EnemyObject.GetComponent<Animator>().Play("goblinIdle", 0);
-                EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.15f, 6f);
-                break;
-            case 2:
-                //switch case for random slime color
-                int slimeRandomColor = Random.Range(1, 4);
-                switch (slimeRandomColor)
-                {
-                    case 1:
-                        EnemyObject.GetComponent<Animator>().Play("SlimeBlueIdle", 0);
-                        break;
-                    case 2:
-                        EnemyObject.GetComponent<Animator>().Play("SlimeGreenIdle", 0);
-                        break;
-                    case 3:
-                        EnemyObject.GetComponent<Animator>().Play("SlimeRedIdle", 0);
-                        break;
-                }
-                EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.5f, 6f);
-                this.enemy = new Slime();
-                break;
+            switch (rando)
+            {
+                case 1:
+                    this.enemy = new goblin();
+                    EnemyObject.GetComponent<Animator>().Play("goblinIdle", 0);
+                    EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.15f, 6f);
+                    break;
+                case 2:
+                    //switch case for random slime color
+                    int slimeRandomColor = Random.Range(1, 4);
+                    switch (slimeRandomColor)
+                    {
+                        case 1:
+                            EnemyObject.GetComponent<Animator>().Play("SlimeBlueIdle", 0);
+                            break;
+                        case 2:
+                            EnemyObject.GetComponent<Animator>().Play("SlimeGreenIdle", 0);
+                            break;
+                        case 3:
+                            EnemyObject.GetComponent<Animator>().Play("SlimeRedIdle", 0);
+                            break;
+                    }
+                    EnemyObject.GetComponent<Transform>().position = new Vector3(5.6f, -1.5f, 6f);
+                    this.enemy = new Slime();
+                    break;
+            }
+        } else
+        {
+            switch(rando) {
+                case 1:
+                    enemy = new Golm();
+                    EnemyObject.GetComponent<Animator>().Play("GolemIdle", 0);
+                    break;
+                case 2:
+                    enemy = new ChonoKing();
+                    EnemyObject.GetComponent<Animator>().Play("Idle", 0);
+                    break;
+            }
         }
 
     }

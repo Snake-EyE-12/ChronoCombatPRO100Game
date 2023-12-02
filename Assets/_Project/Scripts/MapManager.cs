@@ -14,7 +14,7 @@ public class MapManager : Singleton<MapManager>
         sprite[0] = current;
         sprite[1] = choice1;
         sprite[2] = choice2;
-        this.levelCount = levelCount;
+        this.levelCount = levelCount + 1;
     }
 
 }
