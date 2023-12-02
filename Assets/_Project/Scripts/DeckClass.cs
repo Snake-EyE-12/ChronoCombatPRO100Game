@@ -82,7 +82,7 @@ public class Deck
     public void DiscardCard(int i)
     {
         discarded.Add(currentHand[i]);
-        currentHand.RemoveAt(0);
+        currentHand.RemoveAt(i);
     }
 
     public void IncrementCasting()
