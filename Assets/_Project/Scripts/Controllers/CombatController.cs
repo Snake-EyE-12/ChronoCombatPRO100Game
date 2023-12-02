@@ -187,6 +187,7 @@ public class CombatController : MonoBehaviour
         playerHealth.slider.value = player.hp;
         if (player.hp <= 0)
         {
+            player.playerDeck.Shovel();
             SceneManager.LoadScene("GameOver");
         }
     }
