@@ -204,6 +204,7 @@ public class CombatController : MonoBehaviour
         if (player.hp <= 0)
         {
             player.playerDeck.Shovel();
+            CombatInfo.Instance().player = player;
             SceneManager.LoadScene("GameOver");
         }
     }
