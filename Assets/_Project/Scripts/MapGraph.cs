@@ -38,6 +38,7 @@ public class MapGraph : MonoBehaviour
         
     public void onClick(GameObject space) 
     {
+        AudioManager.play("Click", false);
         if (space == space1) {
             currentSprite = choice1;
             

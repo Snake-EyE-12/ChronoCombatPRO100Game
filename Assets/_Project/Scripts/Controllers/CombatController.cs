@@ -47,10 +47,7 @@ public class CombatController : MonoBehaviour
     {
 
         int rando = Random.Range(1, 3);
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
         if (MapManager.Instance().levelCount % 5 != 0)
         {
             switch (rando)
@@ -79,10 +76,11 @@ public class CombatController : MonoBehaviour
                     this.enemy = new Slime();
                     break;
             }
-<<<<<<< Updated upstream
+
         } else
         {
-            switch(rando) {
+            switch (rando)
+            {
                 case 1:
                     enemy = new Golm();
                     EnemyObject.GetComponent<Animator>().Play("GolemIdle", 0);
@@ -91,20 +89,9 @@ public class CombatController : MonoBehaviour
                     enemy = new ChonoKing();
                     EnemyObject.GetComponent<Animator>().Play("Idle", 0);
                     break;
-=======
-        }else
-        {
-            switch(rando)
-            {
-                case 1:
-                    this.enemy = new Golm
-                    break;
-                case 2:
-                    break;
-
->>>>>>> Stashed changes
             }
         }
+
 
     }
     public void DealDamageToPlayer(int damage)
@@ -123,6 +110,7 @@ public class CombatController : MonoBehaviour
 
     public void endTurn()
     {
+        AudioManager.play("Click", false);
         if (EffectController.gotsaSpeedUp) EffectController.gotsaSpeedUp = false;
         if (EffectController.battleMech) DealDamageToEnemy(3);
         enemyDie();
@@ -152,8 +140,10 @@ public class CombatController : MonoBehaviour
 
     public void playCard(Card card, int index)
     {
+
         if (card.manaCost - EffectController.manaModifier <= player.mana)
         {
+            AudioManager.play("Click", false);
             player.mana -= card.manaCost - EffectController.manaModifier;
 
             if (EffectController.plasmaSpear)
