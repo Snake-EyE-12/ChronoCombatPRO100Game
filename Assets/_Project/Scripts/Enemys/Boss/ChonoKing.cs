@@ -16,10 +16,9 @@ public class ChonoKing : Enemy
 
     public override void Attack()
     {
-        int squene = 0;
         int dmg = 0;
         int move = 0;
-
+        
         if(squence < 5)
         {
             move = RandomNum(1, 2);
@@ -33,6 +32,7 @@ public class ChonoKing : Enemy
                     dmg = Atk2();
                     break;
             }
+            squence++;
         }
         else
         {

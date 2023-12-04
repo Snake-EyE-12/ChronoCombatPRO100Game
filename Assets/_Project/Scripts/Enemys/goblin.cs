@@ -64,7 +64,6 @@ public class goblin : Enemy
         //have the name of the move to talk to the controler to display
         moveName = "Hehe";
         return atk * 2;
-
     }
     #endregion
 
