@@ -19,6 +19,7 @@ public class EffectController : Singleton<EffectController>
     public static bool gotsaSpeedUp = false;
     public static bool battleMech = false;
     public static bool enemyStunned = false;
+    public static bool devil = false;
     public static bool reflect = false;
  
 

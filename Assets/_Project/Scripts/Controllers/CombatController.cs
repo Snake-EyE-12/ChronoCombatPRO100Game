@@ -96,6 +96,11 @@ public class CombatController : MonoBehaviour
         if (EffectController.battleMech) DealDamageToEnemy(3);
         enemyDie();
 
+        if (EffectController.devil)
+        {
+            ChangePlayerHealth(999);
+            EffectController.devil = false;
+        }
         turnCount++;
         turn++;
 
@@ -158,6 +163,7 @@ public class CombatController : MonoBehaviour
     }
     public void DealDamageToEnemy(int damage)
     {
+        if (EffectController.devil) damage = damage * 3;
         DealEnemyDamage(damage);
         changeHealthBar();
         //DealDamageToPlayer(enemy.Attack());
