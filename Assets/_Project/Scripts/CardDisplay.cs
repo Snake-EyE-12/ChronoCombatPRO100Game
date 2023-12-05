@@ -10,6 +10,7 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] private Image cardSprite;
     private int index;
     public void CollectCard() {
+        AudioManager.play("Click");
         CombatInfo.Instance().player.playerDeck.AddCardDeck(card);
         SceneManager.LoadScene("Map");
     }
