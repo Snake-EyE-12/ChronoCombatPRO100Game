@@ -47,7 +47,6 @@ public class CombatController : MonoBehaviour
     {
 
         int rando = Random.Range(1, 3);
-
         if (MapManager.Instance().levelCount % 5 != 0)
         {
             switch (rando)
@@ -76,9 +75,11 @@ public class CombatController : MonoBehaviour
                     this.enemy = new Slime();
                     break;
             }
-        } else
+        }
+        else
         {
-            switch(rando) {
+            switch (rando)
+            {
                 case 1:
                     enemy = new Golm();
                     EnemyObject.GetComponent<Animator>().Play("GolemIdle", 0);
@@ -89,7 +90,6 @@ public class CombatController : MonoBehaviour
                     break;
             }
         }
-
     }
     public void DealDamageToPlayer(int damage)
     {
@@ -109,7 +109,10 @@ public class CombatController : MonoBehaviour
     {
         if (EffectController.gotsaSpeedUp) EffectController.gotsaSpeedUp = false;
         if (EffectController.battleMech) DealDamageToEnemy(3);
+
         enemyDie();
+
+        if (EffectController.devil) ChangePlayerHealth(-999);
 
         turnCount++;
         turn++;
@@ -173,6 +176,7 @@ public class CombatController : MonoBehaviour
     }
     public void DealDamageToEnemy(int damage)
     {
+        if (EffectController.devil) damage = damage * 3;
         DealEnemyDamage(damage);
         changeHealthBar();
         //DealDamageToPlayer(enemy.Attack());
@@ -193,6 +197,7 @@ public class CombatController : MonoBehaviour
         if (enemy.hp <= 0)
         {
             EffectController.battleMech = false;
+            EffectController.devil = false;
             player.playerDeck.Shovel();
             SceneManager.LoadScene("CardPicker");
         }
@@ -204,6 +209,8 @@ public class CombatController : MonoBehaviour
         if (player.hp <= 0)
         {
             player.playerDeck.Shovel();
+            CombatInfo.Instance().player = player;
+            EffectController.devil = false;
             SceneManager.LoadScene("GameOver");
         }
     }

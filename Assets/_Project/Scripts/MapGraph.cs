@@ -68,14 +68,20 @@ public class MapGraph : MonoBehaviour
 
     public Sprite createnextChoices()
     {
-        switch (Random.Range(0, 1))
+        if ((MapManager.Instance().levelCount + 1) % 5 != 0)
         {
-            case 0:
-                return fightSpace;
-            case 1:
-                return treasureSpace;
-            case 2:
-                return HealSpace;
+            switch (Random.Range(0, 1))
+            {
+                case 0:
+                    return fightSpace;
+                case 1:
+                    return treasureSpace;
+                case 2:
+                    return HealSpace;
+            }
+        } else
+        {
+            return BossSpace;
         }
         return null;
     }

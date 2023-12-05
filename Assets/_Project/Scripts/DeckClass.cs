@@ -48,8 +48,11 @@ public class Deck
 
     public void Draw()
     {
-        currentHand.Add(deck[0]);
-        deck.RemoveAt(0);
+        if (deck.Count != 0)
+        {
+            currentHand.Add(deck[0]);
+            deck.RemoveAt(0);
+        }
     }
 
 
