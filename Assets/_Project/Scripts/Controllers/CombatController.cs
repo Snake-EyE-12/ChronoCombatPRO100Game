@@ -47,6 +47,7 @@ public class CombatController : MonoBehaviour
     {
 
         int rando = Random.Range(1, 3);
+
         if (MapManager.Instance().levelCount % 5 != 0)
         {
             switch (rando)
@@ -75,8 +76,10 @@ public class CombatController : MonoBehaviour
                     this.enemy = new Slime();
                     break;
             }
-        }
-        else
+
+
+        } else
+
         {
             switch (rando)
             {
@@ -90,6 +93,7 @@ public class CombatController : MonoBehaviour
                     break;
             }
         }
+
     }
     public void DealDamageToPlayer(int damage)
     {
@@ -107,6 +111,7 @@ public class CombatController : MonoBehaviour
 
     public void endTurn()
     {
+        AudioManager.play("Click", false);
         if (EffectController.gotsaSpeedUp) EffectController.gotsaSpeedUp = false;
         if (EffectController.battleMech) DealDamageToEnemy(3);
 
@@ -135,12 +140,15 @@ public class CombatController : MonoBehaviour
         player.playerDeck.IncrementCasting();
         player.playerDeck.Draw();
         changeHealthBar();
+        enemyDie();
     }
 
     public void playCard(Card card, int index)
     {
+
         if (card.manaCost - EffectController.manaModifier <= player.mana)
         {
+            AudioManager.play("Click", false);
             player.mana -= card.manaCost - EffectController.manaModifier;
 
             if (EffectController.plasmaSpear)
@@ -170,7 +178,14 @@ public class CombatController : MonoBehaviour
             }
             changeHealthBar();
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
-            player.playerDeck.DiscardCard(index);
+            if (card.type != "spell")
+            {
+                player.playerDeck.DiscardCard(index);
+            }
+            else
+            {
+                player.playerDeck.removeCardfromHand(index);
+            }
             Debug.Log("cards in hand:" + player.playerDeck.currentHand.Count);
         }
     }
@@ -199,6 +214,7 @@ public class CombatController : MonoBehaviour
             EffectController.battleMech = false;
             EffectController.devil = false;
             player.playerDeck.Shovel();
+            CombatInfo.Instance().player = player;
             SceneManager.LoadScene("CardPicker");
         }
     }
@@ -217,7 +233,6 @@ public class CombatController : MonoBehaviour
     public void DealEnemyDamage(int damage)
     {
         enemy.hp -= damage;
-        if (enemy.hp <= 0) enemyDie();
         enemyHealth.slider.value = enemy.hp;
     }
 }

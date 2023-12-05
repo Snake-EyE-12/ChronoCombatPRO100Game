@@ -20,19 +20,28 @@ public class Deck
 
     public void Shovel()
     {
-        for (int i = 0; i < discarded.Count; i++)
+        int count = discarded.Count;
+        for (int i = 0; i < count; i++)
         {
-            deck.Add(discarded[i]);
-            discarded.RemoveAt(i);
+            deck.Add(discarded[0]);
+            discarded.RemoveAt(0);
         }
         discarded = new List<Card>();
-
-        for (int i = 0; i < currentHand.Count; i++)
+        count = currentHand.Count;
+        for (int i = 0; i < count; i++)
         {
-            deck.Add(currentHand[i]);
-            currentHand.RemoveAt(i);
+            deck.Add(currentHand[0]);
+            currentHand.RemoveAt(0);
         }
         currentHand = new List<Card>();
+
+        count = waitingSpells.Count;
+        for (int i = 0; i < count; i++)
+        {
+            deck.Add(currentHand[0]);
+            currentHand.RemoveAt(0);
+        }
+        waitingSpells = new List<Spell>();
 
         for (int i = 0; i < deck.Count; i++)
         {
@@ -80,12 +89,15 @@ public class Deck
         }
         return null;
     }
-
+    public void removeCardfromHand(int i)
+    {
+        currentHand.RemoveAt(i);
+    }
 
     public void DiscardCard(int i)
     {
         discarded.Add(currentHand[i]);
-        currentHand.RemoveAt(i);
+        removeCardfromHand(i);
     }
 
     public void IncrementCasting()

@@ -15,6 +15,7 @@ public class CardPicker : MonoBehaviour
 
     public void submit()
     {
+        AudioManager.play("Click");
         SceneManager.LoadScene("Map");
     }
 }

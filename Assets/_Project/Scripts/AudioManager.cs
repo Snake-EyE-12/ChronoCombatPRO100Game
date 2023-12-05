@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public static class AudioManager
@@ -14,5 +15,10 @@ public static class AudioManager
             audioTable[name].loop = loop;
             audioTable[name].Play();
         }
+    }
+
+    public static void clear()
+    {
+        audioTable = new Dictionary<string, AudioSource>();
     }
 }

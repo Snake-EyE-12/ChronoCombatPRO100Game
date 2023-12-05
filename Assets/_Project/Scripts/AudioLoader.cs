@@ -7,6 +7,7 @@ public class AudioLoader : MonoBehaviour
     [SerializeField] private List<AudioLoad> loads = new List<AudioLoad>();
 
     private void Start() {
+        AudioManager.clear();
         foreach(AudioLoad load in loads) {
             AudioManager.loadAudio(load.clipName, load.source);
         }

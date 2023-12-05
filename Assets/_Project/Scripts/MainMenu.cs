@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
     public void GoToScene(string sceneName)
     {
+        AudioManager.play("Click", false);
+        WaitForSeconds wait = new WaitForSeconds(3);
+
         SceneManager.LoadScene(sceneName);
     }
 
