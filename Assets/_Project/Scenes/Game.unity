@@ -2400,7 +2400,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898606815}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2422,77 +2422,77 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wizardHat:
     manaCost: 0
-    type: 
+    type: item
     temp: 0
     sprite: {fileID: 21300000, guid: bd648e3bd9d670d4291f866448e02d78, type: 3}
     slot: 2
   wizardRobe:
     manaCost: 0
-    type: 
+    type: item
     temp: 0
     sprite: {fileID: 21300000, guid: 81c8549fb4a15af4780beb6b0ac9155f, type: 3}
     slot: 1
   ominousRing:
     manaCost: 0
-    type: 
+    type: item
     temp: 0
     sprite: {fileID: 21300000, guid: 2f1198744426a194296e696ac55ea726, type: 3}
     slot: 2
   plasmaSpear:
     manaCost: 0
-    type: 
+    type: item
     temp: 0
     sprite: {fileID: 21300000, guid: d2f87b1fa59f16748bf22a452759eca7, type: 3}
     slot: 2
   wizardStaff:
     manaCost: 0
-    type: 
+    type: item
     temp: 0
     sprite: {fileID: 21300000, guid: 11ae1df80b256f8459a9706afda101a3, type: 3}
     slot: 2
   healthPotion:
     manaCost: 2
-    type: 
+    type: item
     temp: 0
     sprite: {fileID: 21300000, guid: 97976fb8fc731f24ab98479f75706e6c, type: 3}
     slot: 3
   toyChest:
     manaCost: 3
-    type: 
+    type: item
     temp: 0
     sprite: {fileID: 21300000, guid: a00921a615f81d84c8e0d71019b9a9bb, type: 3}
     slot: 3
   fireball:
     manaCost: 3
-    type: 
+    type: spell
     temp: 0
     sprite: {fileID: 21300000, guid: ced46465d61fa374b8630274be43825e, type: 3}
     castingTime: 1
   gotsSpeedUp:
     manaCost: 3
-    type: 
+    type: spell
     temp: 0
     sprite: {fileID: 21300000, guid: 3e697f0870de9c64b9876e61f32d75e9, type: 3}
     castingTime: 1
   powerWordKill:
     manaCost: 6
-    type: 
+    type: spell
     temp: 0
     sprite: {fileID: 21300000, guid: 0d9cd0eadfd63c341b57522ba539769d, type: 3}
     castingTime: 3
   battleMech:
     manaCost: 2
-    type: 
+    type: action
     temp: 0
     sprite: {fileID: 21300000, guid: 55edc7ef7b31a164e8d57ae5738ca908, type: 3}
   garson:
     manaCost: 4
-    type: 
+    type: action
     temp: 0
     sprite: {fileID: 21300000, guid: 987032e9863d7d0468e12296e565aeea, type: 3}
   pocketSand:
     manaCost: 1
-    type: 
+    type: action
     temp: 0
     sprite: {fileID: 21300000, guid: 37f22d05a71cd82419f0dd0930028767, type: 3}
   teemo:
@@ -2502,7 +2502,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f229559511a0da6438ce820a73c04edc, type: 3}
   strike:
     manaCost: 1
-    type: 
+    type: action
     temp: 0
     sprite: {fileID: 21300000, guid: e9ebec0734543b64ab71a0fae3b91e63, type: 3}
 --- !u!114 &1898606819
