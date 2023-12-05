@@ -75,7 +75,7 @@ public class MapGraph : MonoBehaviour
 
     public Sprite createnextChoices()
     {
-        if ((MapManager.Instance().levelCount + 1) % 5 != 0)
+        if ((MapManager.Instance().levelCount) % 5 != 0)
         {
             switch (Random.Range(0, 1))
             {
