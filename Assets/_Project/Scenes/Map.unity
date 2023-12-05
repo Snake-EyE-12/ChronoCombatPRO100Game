@@ -1250,7 +1250,7 @@ MonoBehaviour:
   choice2: {fileID: 21300000, guid: e71d054e279804e479d43a4b5d9812ae, type: 3}
   treasureSpace: {fileID: 21300000, guid: 1955b9b572c72df418510eced0bc7838, type: 3}
   fightSpace: {fileID: 21300000, guid: e71d054e279804e479d43a4b5d9812ae, type: 3}
-  HealSpace: {fileID: 21300000, guid: 4209cbc9a529e2c49950b46c8795bd79, type: 3}
+  HealSpace: {fileID: 21300000, guid: a90252e7362bc1649b8439c543a25244, type: 3}
   BossSpace: {fileID: 21300000, guid: 4f74c9cd87d87d94a93380df61ba1717, type: 3}
   currentSpace: {fileID: 414574246}
   space1: {fileID: 1026453385}
