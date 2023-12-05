@@ -8,8 +8,8 @@ public class Golm : Enemy
     public Golm()
     {
         this.hp = RandomNum(50,69);
-        this.atk = RandomNum(10, 15);
-        this.def = RandomNum(15, 20);
+        this.atk = RandomNum(9, 13);
+        this.def = RandomNum(12, 16);
         maxHp = hp;
      }
 
@@ -59,7 +59,7 @@ public class Golm : Enemy
         }
         else
         {
-            dmg = atk + RandomNum(2,8);
+            dmg = atk + RandomNum(2,4);
         }
         return dmg;
     }
@@ -67,13 +67,13 @@ public class Golm : Enemy
     {
         int hit = RandomNum(1, 100);
         int dmg = 0;
-        if (hit < 80)
+        if (hit < 85)
         {
             dmg = 0;
         }
         else
         {
-            dmg = (int)(atk * 1.5);
+            dmg = (int)(atk * 1.3);
         }
         return dmg;
     }
