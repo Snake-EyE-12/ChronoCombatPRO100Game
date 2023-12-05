@@ -44,23 +44,23 @@ public class Slime : Enemy
     int Atk1()
     {
         moveName = "kick";
-        return 5;
+        return atk;
     }
     int Atk2()
     {
         moveName = "punch";
-        return 10;
+        return atk;
     }
     int Atk3()
     {
         moveName = "rizz";
-        return 15;
+        return 0;
     }
     int Atk4()
     {
         //have the name of the move to talk to the controler to display
         moveName = "Hehe";
-        return 69;
+        return atk * 2;
 
     }
     #endregion

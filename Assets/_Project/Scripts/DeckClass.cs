@@ -38,8 +38,8 @@ public class Deck
         count = waitingSpells.Count;
         for (int i = 0; i < count; i++)
         {
-            deck.Add(currentHand[0]);
-            currentHand.RemoveAt(0);
+            deck.Add(waitingSpells[0]);
+            waitingSpells.RemoveAt(0);
         }
         waitingSpells = new List<Spell>();
 

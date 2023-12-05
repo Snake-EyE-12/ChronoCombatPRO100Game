@@ -69,13 +69,13 @@ public class MapGraph : MonoBehaviour
             //load Heal
         } else if (currentSprite == BossSpace)
         {
-            //load boss
+            SceneManager.LoadScene("Game");
         }
     }
 
     public Sprite createnextChoices()
     {
-        if ((MapManager.Instance().levelCount) % 5 != 0)
+        if ((MapManager.Instance().levelCount + 2) % 5 != 0 || MapManager.Instance().levelCount == 0)
         {
             switch (Random.Range(0, 1))
             {
