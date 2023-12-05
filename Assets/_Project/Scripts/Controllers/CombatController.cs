@@ -77,7 +77,9 @@ public class CombatController : MonoBehaviour
                     break;
             }
 
+
         } else
+
         {
             switch (rando)
             {
@@ -91,7 +93,6 @@ public class CombatController : MonoBehaviour
                     break;
             }
         }
-
 
     }
     public void DealDamageToPlayer(int damage)
@@ -113,7 +114,10 @@ public class CombatController : MonoBehaviour
         AudioManager.play("Click", false);
         if (EffectController.gotsaSpeedUp) EffectController.gotsaSpeedUp = false;
         if (EffectController.battleMech) DealDamageToEnemy(3);
+
         enemyDie();
+
+        if (EffectController.devil) ChangePlayerHealth(-999);
 
         turnCount++;
         turn++;
@@ -187,6 +191,7 @@ public class CombatController : MonoBehaviour
     }
     public void DealDamageToEnemy(int damage)
     {
+        if (EffectController.devil) damage = damage * 3;
         DealEnemyDamage(damage);
         changeHealthBar();
         //DealDamageToPlayer(enemy.Attack());
@@ -207,6 +212,7 @@ public class CombatController : MonoBehaviour
         if (enemy.hp <= 0)
         {
             EffectController.battleMech = false;
+            EffectController.devil = false;
             player.playerDeck.Shovel();
             CombatInfo.Instance().player = player;
             SceneManager.LoadScene("CardPicker");
@@ -220,6 +226,7 @@ public class CombatController : MonoBehaviour
         {
             player.playerDeck.Shovel();
             CombatInfo.Instance().player = player;
+            EffectController.devil = false;
             SceneManager.LoadScene("GameOver");
         }
     }

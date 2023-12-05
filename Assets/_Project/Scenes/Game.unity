@@ -2420,6 +2420,11 @@ MonoBehaviour:
     type: action
     temp: 0
     sprite: {fileID: 21300000, guid: 37f22d05a71cd82419f0dd0930028767, type: 3}
+  teemo:
+    manaCost: 0
+    type: devil
+    temp: 0
+    sprite: {fileID: 21300000, guid: f229559511a0da6438ce820a73c04edc, type: 3}
   strike:
     manaCost: 1
     type: action

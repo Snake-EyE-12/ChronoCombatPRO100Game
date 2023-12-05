@@ -15,7 +15,7 @@ public class ToyChest : Consumable
         List<Card> cards = new List<Card>();
         foreach (Card card in CardDatabase.Instance().cardList)
         {
-            if (card.manaCost <= 3)
+            if (card.manaCost <= 3 && card.type != "devil")
             {
                 cards.Add(card);
             }

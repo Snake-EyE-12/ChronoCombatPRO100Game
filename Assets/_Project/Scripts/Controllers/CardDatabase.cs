@@ -29,6 +29,7 @@ public class CardDatabase : Singleton<CardDatabase>
     public BattleMech battleMech = new BattleMech();
     public Garson garson = new Garson();
     public PocketSand pocketSand = new PocketSand();
+    public TheDevil teemo = new TheDevil();
     public Strike strike = new Strike();
 
     public List<Card> cardList = new List<Card>();
@@ -58,6 +59,7 @@ public class CardDatabase : Singleton<CardDatabase>
         cardList.Add(battleMech);
         cardList.Add(garson);
         cardList.Add(pocketSand);
+        cardList.Add(teemo);
         cardList.Add(strike);
     }
 }
