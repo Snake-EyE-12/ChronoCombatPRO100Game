@@ -28,6 +28,12 @@ public class MapGraph : MonoBehaviour
             choice2 = MapManager.Instance().sprite[2];
             levelCount = MapManager.Instance().levelCount;
         }
+        if (MapManager.Instance().levelCount == 0)
+        {
+            currentSprite = HealSpace;
+            choice1 = fightSpace;
+            choice2 = fightSpace;
+        }
     }
     public void Update()
     {
@@ -38,6 +44,7 @@ public class MapGraph : MonoBehaviour
         
     public void onClick(GameObject space) 
     {
+        AudioManager.play("Click", false);
         if (space == space1) {
             currentSprite = choice1;
             

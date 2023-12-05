@@ -17,8 +17,9 @@ public class RemoveManager : MonoBehaviour
 
     }
     private void Start() {
+        CombatInfo.Instance().player.playerDeck.Shovel();
         allCardsInDeck.AddRange(CombatInfo.Instance().player.playerDeck.deck);
-        allCardsInDeck.AddRange(CombatInfo.Instance().player.playerDeck.currentHand);
+        //allCardsInDeck.AddRange(CombatInfo.Instance().player.playerDeck.currentHand);
         foreach(Card card in allCardsInDeck) {
             CardDisplay display = Instantiate(prefab, parent).GetComponent<CardDisplay>();
             display.SetCard(card);
