@@ -10,8 +10,8 @@ public class ChonoKing : Enemy
     {
         this.hp = 50;
         this.maxHp = hp;
-        this.atk = 15;
-        this.def = 15;
+        this.atk = 12;
+        this.def = 12;
     }
 
     public override void Attack()
