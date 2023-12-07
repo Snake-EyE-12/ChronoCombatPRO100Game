@@ -12,6 +12,7 @@ public class HandDisplay : MonoBehaviour
     List<GameObject> cards;
     List<GameObject> madeCards;
     int xpos;
+    int ypos;
     public GameObject cardPrefab;
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,8 @@ public class HandDisplay : MonoBehaviour
         if (CombatInfo.Instance().controller.player.playerDeck != null && CombatInfo.Instance().controller.player.playerDeck.currentHand != null && CombatInfo.Instance().controller.player.playerDeck.currentHand.Count != handSize)
         {
             Debug.Log("Hand Display Start");
-            xpos = Screen.width / 15;
+            xpos = Screen.width / 14;
+            ypos = Screen.height / 6;
 
             for (int j = 0; j < CombatInfo.Instance().controller.player.playerDeck.currentHand.Count; j++)
                {
@@ -58,7 +60,7 @@ public class HandDisplay : MonoBehaviour
             handSize = CombatInfo.Instance().controller.player.playerDeck.currentHand.Count;
             for (int i = 0; i < handSize; i++)
             {
-                madeCards.Add((Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform)));
+                madeCards.Add((Instantiate(cards[i], new Vector3(xpos, ypos, 0), Quaternion.identity, gameObject.transform)));
                 madeCards[i].SetActive(true);
                 //madeCards[i].transform.parent = gameObject.transform;
                 //CardDisplay cd = Instantiate(cards[i], new Vector3(xpos, 80, 0), Quaternion.identity, gameObject.transform).GetComponent<CardDisplay>();
