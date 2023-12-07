@@ -8,7 +8,7 @@ public class CardDisplay : MonoBehaviour
 {
     [SerializeField] private Card card;
     [SerializeField] private Image cardSprite;
-    private int index;
+    public int index;
     public void CollectCard() {
         AudioManager.play("Click");
         CombatInfo.Instance().player.playerDeck.AddCardDeck(card);
@@ -33,6 +33,7 @@ public class CardDisplay : MonoBehaviour
     }
     public int GetIndex() { return index; }
     public void RemoveSimilarCard() {
+        CombatInfo.Instance().player.playerDeck.removeCardfromDeck(index);
         SceneManager.LoadScene("Menu");
     }
 }

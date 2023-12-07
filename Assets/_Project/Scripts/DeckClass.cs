@@ -93,6 +93,10 @@ public class Deck
     {
         currentHand.RemoveAt(i);
     }
+    public void removeCardfromDeck(int i)
+    {
+        deck.RemoveAt(i);
+    }
 
     public void DiscardCard(int i)
     {
